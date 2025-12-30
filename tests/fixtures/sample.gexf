@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
+    <meta lastmodifieddate="2024-01-15">
+        <creator>GFX Test Suite</creator>
+        <description>A sample graph for testing the GFX CLI tool</description>
+    </meta>
+    <graph mode="static" defaultedgetype="directed">
+        <attributes class="node">
+            <attribute id="0" title="type" type="string"/>
+            <attribute id="1" title="weight" type="float"/>
+        </attributes>
+        <attributes class="edge">
+            <attribute id="0" title="relationship" type="string"/>
+        </attributes>
+        <nodes>
+            <node id="server1" label="Web Server 1">
+                <attvalues>
+                    <attvalue for="0" value="server"/>
+                    <attvalue for="1" value="1.5"/>
+                </attvalues>
+            </node>
+            <node id="server2" label="Web Server 2">
+                <attvalues>
+                    <attvalue for="0" value="server"/>
+                    <attvalue for="1" value="2.0"/>
+                </attvalues>
+            </node>
+            <node id="db1" label="Database Primary">
+                <attvalues>
+                    <attvalue for="0" value="database"/>
+                    <attvalue for="1" value="3.0"/>
+                </attvalues>
+            </node>
+            <node id="cache1" label="Redis Cache">
+                <attvalues>
+                    <attvalue for="0" value="cache"/>
+                    <attvalue for="1" value="1.0"/>
+                </attvalues>
+            </node>
+            <node id="lb1" label="Load Balancer">
+                <attvalues>
+                    <attvalue for="0" value="loadbalancer"/>
+                    <attvalue for="1" value="0.5"/>
+                </attvalues>
+            </node>
+        </nodes>
+        <edges>
+            <edge id="e0" source="lb1" target="server1" weight="1.0">
+                <attvalues>
+                    <attvalue for="0" value="routes"/>
+                </attvalues>
+            </edge>
+            <edge id="e1" source="lb1" target="server2" weight="1.0">
+                <attvalues>
+                    <attvalue for="0" value="routes"/>
+                </attvalues>
+            </edge>
+            <edge id="e2" source="server1" target="db1" weight="2.0">
+                <attvalues>
+                    <attvalue for="0" value="queries"/>
+                </attvalues>
+            </edge>
+            <edge id="e3" source="server2" target="db1" weight="2.0">
+                <attvalues>
+                    <attvalue for="0" value="queries"/>
+                </attvalues>
+            </edge>
+            <edge id="e4" source="server1" target="cache1" weight="0.5">
+                <attvalues>
+                    <attvalue for="0" value="caches"/>
+                </attvalues>
+            </edge>
+            <edge id="e5" source="server2" target="cache1" weight="0.5">
+                <attvalues>
+                    <attvalue for="0" value="caches"/>
+                </attvalues>
+            </edge>
+        </edges>
+    </graph>
+</gexf>
