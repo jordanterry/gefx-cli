@@ -3,8 +3,8 @@ class GfxCli < Formula
 
   desc "CLI tool for interrogating and browsing GEXF graph files"
   homepage "https://jordanterry.github.io/gefx-cli/"
-  url "https://github.com/jordanterry/gefx-cli/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "a5adcaa0903294c9546c55fe240892b906af0ac38f2125365c0a93210346ac9b"
+  url "https://github.com/jordanterry/gefx-cli/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "7c85bc157b7f1062a8dae0c470e22024c28082956d7409021e846581027e1ef4"
   license "MIT"
 
   depends_on "python@3.11"
