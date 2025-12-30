@@ -21,12 +21,6 @@ For Homebrew installation:
 ### Homebrew (macOS/Linux)
 
 ```bash
-brew install jordanterry/grph/grph-cli
-```
-
-Or manually:
-
-```bash
 brew tap jordanterry/grph https://github.com/jordanterry/grph
 brew install grph-cli
 ```
