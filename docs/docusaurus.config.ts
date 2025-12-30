@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'GFX CLI',
-  tagline: 'A powerful CLI for interrogating and browsing GEXF graph files',
+  title: 'grph',
+  tagline: 'Like grep, but for graphs. A CLI tool for exploring, analyzing, and querying graph files.',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -14,11 +14,11 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://jordanterry.github.io',
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/gefx-cli/',
+  baseUrl: '/grph/',
 
   // GitHub pages deployment config.
   organizationName: 'jordanterry',
-  projectName: 'gefx-cli',
+  projectName: 'grph',
 
   onBrokenLinks: 'throw',
 
@@ -49,7 +49,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'GFX CLI',
+      title: 'grph',
       items: [
         {
           type: 'docSidebar',
@@ -58,7 +58,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/jordanterry/gefx-cli',
+          href: 'https://github.com/jordanterry/grph',
           label: 'GitHub',
           position: 'right',
         },
@@ -106,16 +106,16 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/jordanterry/gefx-cli',
+              href: 'https://github.com/jordanterry/grph',
             },
             {
               label: 'PyPI',
-              href: 'https://pypi.org/project/gfx-cli/',
+              href: 'https://pypi.org/project/grph-cli/',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} GFX CLI. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} grph. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
