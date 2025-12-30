@@ -75,15 +75,14 @@ jobs:
 
       - name: Update formula
         run: |
-          VERSION="${{ steps.version.outputs.version }}"
           TAG="${{ steps.version.outputs.tag }}"
           SHA256="${{ steps.sha.outputs.sha256 }}"
 
-          # Update version in URL
-          sed -i "s|archive/refs/tags/v[^\"]*\.tar\.gz|archive/refs/tags/${TAG}.tar.gz|" Formula/gfx-cli.rb
+          # Update version in URL (line 6)
+          sed -i "6s|archive/refs/tags/v[^\"]*\.tar\.gz|archive/refs/tags/${TAG}.tar.gz|" Formula/gfx-cli.rb
 
-          # Update SHA256
-          sed -i "s|sha256 \"[^\"]*\"|sha256 \"${SHA256}\"|" Formula/gfx-cli.rb
+          # Update only the main package SHA256 (line 7), not the dependency SHA256s
+          sed -i "7s|sha256 \"[^\"]*\"|sha256 \"${SHA256}\"|" Formula/gfx-cli.rb
 
       - name: Commit and push
         run: |
