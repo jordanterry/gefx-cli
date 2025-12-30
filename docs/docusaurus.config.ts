@@ -12,12 +12,12 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-username.github.io',
+  url: 'https://jordanterry.github.io',
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/gfx-cli/',
 
   // GitHub pages deployment config.
-  organizationName: 'your-username',
+  organizationName: 'jordanterry',
   projectName: 'gfx-cli',
 
   onBrokenLinks: 'throw',
@@ -58,7 +58,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/your-username/gfx-cli',
+          href: 'https://github.com/jordanterry/gfx-cli',
           label: 'GitHub',
           position: 'right',
         },
@@ -106,7 +106,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-username/gfx-cli',
+              href: 'https://github.com/jordanterry/gfx-cli',
             },
             {
               label: 'PyPI',
