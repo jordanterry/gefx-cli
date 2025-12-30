@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from gfx.models import CentralityType, ExportFormat
-from gfx.parser import GEXFGraph, GEXFParseError
+from grph.models import CentralityType, ExportFormat
+from grph.parser import GEXFGraph, GEXFParseError
 
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
@@ -421,7 +421,7 @@ class TestModelSerialization:
 
     def test_path_result_to_dict(self) -> None:
         """Test PathResult serialization."""
-        from gfx.models import PathResult
+        from grph.models import PathResult
 
         path = PathResult(
             source="a",
@@ -440,7 +440,7 @@ class TestModelSerialization:
 
     def test_centrality_result_to_dict(self) -> None:
         """Test CentralityResult serialization."""
-        from gfx.models import CentralityResult
+        from grph.models import CentralityResult
 
         result = CentralityResult(
             centrality_type="degree",
@@ -454,7 +454,7 @@ class TestModelSerialization:
 
     def test_component_info_to_dict(self) -> None:
         """Test ComponentInfo serialization."""
-        from gfx.models import ComponentInfo
+        from grph.models import ComponentInfo
 
         info = ComponentInfo(
             num_components=2,

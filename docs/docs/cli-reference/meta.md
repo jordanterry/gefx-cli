@@ -1,16 +1,16 @@
 ---
 sidebar_position: 3
-title: gfx meta
+title: grph meta
 ---
 
-# gfx meta
+# grph meta
 
 Display detailed metadata from a GEXF file.
 
 ## Synopsis
 
 ```bash
-gfx meta <file> [--json]
+grph meta <file> [--json]
 ```
 
 ## Description
@@ -44,7 +44,7 @@ This is useful for understanding the provenance and purpose of a graph file.
 ### Basic Usage
 
 ```bash
-gfx meta social-network.gexf
+grph meta social-network.gexf
 ```
 
 Output:
@@ -67,7 +67,7 @@ Output:
 ### JSON Output
 
 ```bash
-gfx meta social-network.gexf --json
+grph meta social-network.gexf --json
 ```
 
 ```json
@@ -83,12 +83,12 @@ gfx meta social-network.gexf --json
 }
 ```
 
-## Difference from `gfx info`
+## Difference from `grph info`
 
 | Command | Purpose |
 |---------|---------|
-| `gfx info` | Quick summary + available attributes list |
-| `gfx meta` | Full metadata (creator, description, dates) |
+| `grph info` | Quick summary + available attributes list |
+| `grph meta` | Full metadata (creator, description, dates) |
 
 Use `info` for a quick overview including attribute names. Use `meta` when you need the full metadata including who created the file and when.
 

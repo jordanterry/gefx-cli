@@ -3,15 +3,15 @@ sidebar_position: 3
 title: Scripting
 ---
 
-# Scripting with GFX CLI
+# Scripting with grph CLI
 
-GFX CLI is designed to work well in scripts and automation pipelines. This page covers common scripting patterns.
+grph CLI is designed to work well in scripts and automation pipelines. This page covers common scripting patterns.
 
 ## Basic Scripting
 
 ### Exit Codes
 
-GFX CLI uses standard exit codes:
+grph CLI uses standard exit codes:
 
 | Code | Meaning |
 |------|---------|
@@ -19,7 +19,7 @@ GFX CLI uses standard exit codes:
 | `1` | Error (file not found, parse error, etc.) |
 
 ```bash
-if gfx info graph.gexf > /dev/null 2>&1; then
+if grph info graph.gexf > /dev/null 2>&1; then
     echo "Valid GEXF file"
 else
     echo "Invalid or missing file"
@@ -31,11 +31,11 @@ fi
 
 ```bash
 # Capture JSON output
-nodes=$(gfx nodes graph.gexf --json)
+nodes=$(grph nodes graph.gexf --json)
 echo "Found $(echo "$nodes" | jq length) nodes"
 
 # Capture specific values
-node_count=$(gfx info graph.gexf --json | jq '.node_count')
+node_count=$(grph info graph.gexf --json | jq '.node_count')
 echo "Graph has $node_count nodes"
 ```
 
@@ -48,7 +48,7 @@ echo "Graph has $node_count nodes"
 # validate-graphs.sh
 
 for file in graphs/*.gexf; do
-    if gfx info "$file" > /dev/null 2>&1; then
+    if grph info "$file" > /dev/null 2>&1; then
         echo "✓ $file"
     else
         echo "✗ $file (invalid)"
@@ -74,17 +74,17 @@ echo ""
 
 # Basic info
 echo "## Summary"
-gfx info "$file" --json | jq -r '"- Nodes: \(.node_count)\n- Edges: \(.edge_count)\n- Mode: \(.mode)"'
+grph info "$file" --json | jq -r '"- Nodes: \(.node_count)\n- Edges: \(.edge_count)\n- Mode: \(.mode)"'
 echo ""
 
 # Node breakdown
 echo "## Nodes by Type"
-gfx nodes "$file" --json | jq -r 'group_by(.attributes.type) | .[] | "- \(.[0].attributes.type // "unknown"): \(length)"'
+grph nodes "$file" --json | jq -r 'group_by(.attributes.type) | .[] | "- \(.[0].attributes.type // "unknown"): \(length)"'
 echo ""
 
 # Top connected nodes
 echo "## Most Connected Nodes (Outgoing)"
-gfx edges "$file" --json | jq -r 'group_by(.source) | sort_by(-length) | .[0:5] | .[] | "- \(.[0].source): \(length) edges"'
+grph edges "$file" --json | jq -r 'group_by(.source) | sort_by(-length) | .[0:5] | .[] | "- \(.[0].source): \(length) edges"'
 ```
 
 ### Find and Process
@@ -96,7 +96,7 @@ gfx edges "$file" --json | jq -r 'group_by(.source) | sort_by(-length) | .[0:5] 
 file="$1"
 
 # Get all server nodes
-servers=$(gfx nodes "$file" --attr type=server --json)
+servers=$(grph nodes "$file" --attr type=server --json)
 
 # Process each server
 echo "$servers" | jq -c '.[]' | while read -r node; do
@@ -104,8 +104,8 @@ echo "$servers" | jq -c '.[]' | while read -r node; do
     label=$(echo "$node" | jq -r '.label')
 
     # Count connections
-    outgoing=$(gfx edges "$file" --source "$id" --json | jq 'length')
-    incoming=$(gfx edges "$file" --target "$id" --json | jq 'length')
+    outgoing=$(grph edges "$file" --source "$id" --json | jq 'length')
+    incoming=$(grph edges "$file" --target "$id" --json | jq 'length')
 
     echo "$label ($id): $outgoing outgoing, $incoming incoming"
 done
@@ -166,7 +166,7 @@ import sys
 from collections import Counter
 
 def run_gfx(cmd):
-    """Run a gfx command and return JSON output."""
+    """Run a grph command and return JSON output."""
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"Error: {result.stderr}", file=sys.stderr)
@@ -242,7 +242,7 @@ jobs:
         run: |
           for file in data/*.gexf; do
             echo "Validating $file..."
-            gfx info "$file"
+            grph info "$file"
           done
 ```
 
@@ -258,7 +258,7 @@ gexf_files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.gexf$')
 if [ -n "$gexf_files" ]; then
     echo "Validating GEXF files..."
     for file in $gexf_files; do
-        if ! gfx info "$file" > /dev/null 2>&1; then
+        if ! grph info "$file" > /dev/null 2>&1; then
             echo "Error: Invalid GEXF file: $file"
             exit 1
         fi
@@ -275,10 +275,10 @@ For large files, prefer filtered queries over fetching everything:
 
 ```bash
 # Slower: fetch all, then filter
-gfx nodes large.gexf --json | jq '[.[] | select(.attributes.type == "server")]'
+grph nodes large.gexf --json | jq '[.[] | select(.attributes.type == "server")]'
 
 # Faster: filter at source
-gfx nodes large.gexf --attr type=server --json
+grph nodes large.gexf --attr type=server --json
 ```
 
 ### Error Messages
@@ -286,7 +286,7 @@ gfx nodes large.gexf --attr type=server --json
 Redirect stderr to capture error messages separately:
 
 ```bash
-output=$(gfx nodes graph.gexf --json 2>&1)
+output=$(grph nodes graph.gexf --json 2>&1)
 if [ $? -ne 0 ]; then
     echo "Error: $output"
 fi
@@ -298,8 +298,8 @@ Process multiple files in parallel:
 
 ```bash
 # Using GNU parallel
-find graphs/ -name "*.gexf" | parallel 'gfx info {} --json > {.}.info.json'
+find graphs/ -name "*.gexf" | parallel 'grph info {} --json > {.}.info.json'
 
 # Using xargs
-find graphs/ -name "*.gexf" -print0 | xargs -0 -P4 -I{} sh -c 'gfx info "$1" --json' _ {}
+find graphs/ -name "*.gexf" -print0 | xargs -0 -P4 -I{} sh -c 'grph info "$1" --json' _ {}
 ```

@@ -1,16 +1,16 @@
 ---
 sidebar_position: 8
-title: gfx all-paths
+title: grph all-paths
 ---
 
-# gfx all-paths
+# grph all-paths
 
 Find all simple paths between two nodes.
 
 ## Synopsis
 
 ```bash
-gfx all-paths <file> <source> <target> [--max-depth N] [--json]
+grph all-paths <file> <source> <target> [--max-depth N] [--json]
 ```
 
 ## Description
@@ -40,7 +40,7 @@ The `all-paths` command finds all simple paths (paths without repeated nodes) be
 ### Basic Usage
 
 ```bash
-gfx all-paths network.gexf lb1 db1
+grph all-paths network.gexf lb1 db1
 ```
 
 Output:
@@ -56,13 +56,13 @@ Path 2 (length 2):
 ### With Depth Limit
 
 ```bash
-gfx all-paths network.gexf nodeA nodeZ --max-depth 4
+grph all-paths network.gexf nodeA nodeZ --max-depth 4
 ```
 
 ### JSON Output
 
 ```bash
-gfx all-paths network.gexf lb1 db1 --json
+grph all-paths network.gexf lb1 db1 --json
 ```
 
 ```json
@@ -89,7 +89,7 @@ gfx all-paths network.gexf lb1 db1 --json
 Find all routes between critical components:
 
 ```bash
-gfx all-paths network.gexf gateway database
+grph all-paths network.gexf gateway database
 ```
 
 ### Dependency Path Analysis
@@ -97,5 +97,5 @@ gfx all-paths network.gexf gateway database
 Find all dependency chains:
 
 ```bash
-gfx all-paths dagger-graph.gexf MainActivity Repository --max-depth 5
+grph all-paths dagger-graph.gexf MainActivity Repository --max-depth 5
 ```

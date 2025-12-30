@@ -1,21 +1,21 @@
 ---
 sidebar_position: 9
-title: gfx has-path
+title: grph has-path
 ---
 
-# gfx has-path
+# grph has-path
 
 Check if a path exists between two nodes.
 
 ## Synopsis
 
 ```bash
-gfx has-path <file> <source> <target>
+grph has-path <file> <source> <target>
 ```
 
 ## Description
 
-The `has-path` command quickly checks whether any path exists between two nodes. This is faster than `gfx path` when you only need to know if connectivity exists.
+The `has-path` command quickly checks whether any path exists between two nodes. This is faster than `grph path` when you only need to know if connectivity exists.
 
 ## Arguments
 
@@ -30,7 +30,7 @@ The `has-path` command quickly checks whether any path exists between two nodes.
 ### Basic Usage
 
 ```bash
-gfx has-path network.gexf lb1 db1
+grph has-path network.gexf lb1 db1
 ```
 
 Output (if path exists):
@@ -50,7 +50,7 @@ No - no path exists from lb1 to db1
 Verify two components can communicate:
 
 ```bash
-gfx has-path network.gexf client server
+grph has-path network.gexf client server
 ```
 
 ### Dependency Verification
@@ -58,7 +58,7 @@ gfx has-path network.gexf client server
 Check if a dependency relationship exists:
 
 ```bash
-gfx has-path dagger-graph.gexf FeatureModule CoreLibrary
+grph has-path dagger-graph.gexf FeatureModule CoreLibrary
 ```
 
 ### Scripting
@@ -66,7 +66,7 @@ gfx has-path dagger-graph.gexf FeatureModule CoreLibrary
 Use in scripts for conditional logic:
 
 ```bash
-if gfx has-path graph.gexf nodeA nodeB 2>&1 | grep -q "Yes"; then
+if grph has-path graph.gexf nodeA nodeB 2>&1 | grep -q "Yes"; then
   echo "Connected"
 fi
 ```

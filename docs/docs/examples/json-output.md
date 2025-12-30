@@ -5,17 +5,17 @@ title: JSON Output
 
 # Working with JSON Output
 
-All GFX CLI commands support the `--json` flag for machine-readable output. This page covers how to use JSON output effectively.
+All grph CLI commands support the `--json` flag for machine-readable output. This page covers how to use JSON output effectively.
 
 ## Basic JSON Output
 
 Add `--json` to any command:
 
 ```bash
-gfx info graph.gexf --json
-gfx meta graph.gexf --json
-gfx nodes graph.gexf --json
-gfx edges graph.gexf --json
+grph info graph.gexf --json
+grph meta graph.gexf --json
+grph nodes graph.gexf --json
+grph edges graph.gexf --json
 ```
 
 ## Output Formats
@@ -23,7 +23,7 @@ gfx edges graph.gexf --json
 ### Info Command
 
 ```bash
-gfx info graph.gexf --json
+grph info graph.gexf --json
 ```
 
 ```json
@@ -42,7 +42,7 @@ gfx info graph.gexf --json
 ### Meta Command
 
 ```bash
-gfx meta graph.gexf --json
+grph meta graph.gexf --json
 ```
 
 ```json
@@ -61,7 +61,7 @@ gfx meta graph.gexf --json
 ### Nodes Command
 
 ```bash
-gfx nodes graph.gexf --json
+grph nodes graph.gexf --json
 ```
 
 ```json
@@ -88,7 +88,7 @@ gfx nodes graph.gexf --json
 ### Edges Command
 
 ```bash
-gfx edges graph.gexf --json
+grph edges graph.gexf --json
 ```
 
 ```json
@@ -115,44 +115,44 @@ gfx edges graph.gexf --json
 
 ```bash
 # Get just node IDs
-gfx nodes graph.gexf --json | jq '.[].id'
+grph nodes graph.gexf --json | jq '.[].id'
 
 # Get IDs and labels
-gfx nodes graph.gexf --json | jq '.[] | {id, label}'
+grph nodes graph.gexf --json | jq '.[] | {id, label}'
 ```
 
 ### Filtering
 
 ```bash
 # Nodes with weight > 1.0
-gfx nodes graph.gexf --json | jq '[.[] | select(.attributes.weight > 1.0)]'
+grph nodes graph.gexf --json | jq '[.[] | select(.attributes.weight > 1.0)]'
 
 # Edges with non-null weight
-gfx edges graph.gexf --json | jq '[.[] | select(.weight != null)]'
+grph edges graph.gexf --json | jq '[.[] | select(.weight != null)]'
 ```
 
 ### Counting
 
 ```bash
 # Count nodes by type
-gfx nodes graph.gexf --json | jq 'group_by(.attributes.type) | map({type: .[0].attributes.type, count: length})'
+grph nodes graph.gexf --json | jq 'group_by(.attributes.type) | map({type: .[0].attributes.type, count: length})'
 ```
 
 ### Unique Values
 
 ```bash
 # Get unique node types
-gfx nodes graph.gexf --json | jq '[.[].attributes.type] | unique'
+grph nodes graph.gexf --json | jq '[.[].attributes.type] | unique'
 
 # Get unique edge relationships
-gfx edges graph.gexf --json | jq '[.[].attributes.relationship] | unique'
+grph edges graph.gexf --json | jq '[.[].attributes.relationship] | unique'
 ```
 
 ### Transforming
 
 ```bash
 # Create a simple adjacency list
-gfx edges graph.gexf --json | jq 'group_by(.source) | map({node: .[0].source, targets: [.[].target]})'
+grph edges graph.gexf --json | jq 'group_by(.source) | map({node: .[0].source, targets: [.[].target]})'
 ```
 
 ## Piping to Other Tools
@@ -160,7 +160,7 @@ gfx edges graph.gexf --json | jq 'group_by(.source) | map({node: .[0].source, ta
 ### Python Processing
 
 ```bash
-gfx nodes graph.gexf --json | python3 -c "
+grph nodes graph.gexf --json | python3 -c "
 import json, sys
 nodes = json.load(sys.stdin)
 for node in nodes:
@@ -172,18 +172,18 @@ for node in nodes:
 ### Save to File
 
 ```bash
-gfx nodes graph.gexf --json > nodes.json
-gfx edges graph.gexf --json > edges.json
+grph nodes graph.gexf --json > nodes.json
+grph edges graph.gexf --json > edges.json
 ```
 
 ### Convert to CSV
 
 ```bash
 # Nodes to CSV
-gfx nodes graph.gexf --json | jq -r '["id","label","type"], (.[] | [.id, .label, .attributes.type]) | @csv'
+grph nodes graph.gexf --json | jq -r '["id","label","type"], (.[] | [.id, .label, .attributes.type]) | @csv'
 
 # Edges to CSV
-gfx edges graph.gexf --json | jq -r '["source","target","weight"], (.[] | [.source, .target, .weight]) | @csv'
+grph edges graph.gexf --json | jq -r '["source","target","weight"], (.[] | [.source, .target, .weight]) | @csv'
 ```
 
 ## Combining Commands
@@ -193,8 +193,8 @@ gfx edges graph.gexf --json | jq -r '["source","target","weight"], (.[] | [.sour
 ```bash
 # Find nodes in graph1 but not in graph2
 comm -23 \
-  <(gfx nodes graph1.gexf --json | jq -r '.[].id' | sort) \
-  <(gfx nodes graph2.gexf --json | jq -r '.[].id' | sort)
+  <(grph nodes graph1.gexf --json | jq -r '.[].id' | sort) \
+  <(grph nodes graph2.gexf --json | jq -r '.[].id' | sort)
 ```
 
 ### Build a Report
@@ -204,18 +204,18 @@ echo "Graph Report"
 echo "============"
 echo ""
 echo "Summary:"
-gfx info graph.gexf --json | jq -r '"  Nodes: \(.node_count)\n  Edges: \(.edge_count)"'
+grph info graph.gexf --json | jq -r '"  Nodes: \(.node_count)\n  Edges: \(.edge_count)"'
 echo ""
 echo "Node Types:"
-gfx nodes graph.gexf --json | jq -r 'group_by(.attributes.type) | .[] | "  \(.[0].attributes.type): \(length)"'
+grph nodes graph.gexf --json | jq -r 'group_by(.attributes.type) | .[] | "  \(.[0].attributes.type): \(length)"'
 ```
 
 ## Error Handling
 
-When a file is invalid or not found, GFX CLI exits with code 1:
+When a file is invalid or not found, grph CLI exits with code 1:
 
 ```bash
-gfx info nonexistent.gexf --json
+grph info nonexistent.gexf --json
 # Exit code: 1
 # Output: Error: File not found: nonexistent.gexf
 ```
@@ -223,7 +223,7 @@ gfx info nonexistent.gexf --json
 Check for errors in scripts:
 
 ```bash
-if output=$(gfx nodes graph.gexf --json 2>&1); then
+if output=$(grph nodes graph.gexf --json 2>&1); then
     echo "$output" | jq '.'
 else
     echo "Error: $output"

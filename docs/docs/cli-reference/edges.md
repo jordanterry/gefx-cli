@@ -1,16 +1,16 @@
 ---
 sidebar_position: 5
-title: gfx edges
+title: grph edges
 ---
 
-# gfx edges
+# grph edges
 
 List and filter edges in the graph.
 
 ## Synopsis
 
 ```bash
-gfx edges <file> [--attr KEY=VALUE]... [--source ID] [--target ID] [--type TYPE] [--json] [--no-attrs]
+grph edges <file> [--attr KEY=VALUE]... [--source ID] [--target ID] [--type TYPE] [--json] [--no-attrs]
 ```
 
 ## Description
@@ -47,7 +47,7 @@ When multiple filters are specified, they are combined with **AND logic** - an e
 ### List All Edges
 
 ```bash
-gfx edges network.gexf
+grph edges network.gexf
 ```
 
 Output:
@@ -70,7 +70,7 @@ Output:
 Find all edges originating from the load balancer:
 
 ```bash
-gfx edges network.gexf --source lb1
+grph edges network.gexf --source lb1
 ```
 
 Output:
@@ -89,7 +89,7 @@ Output:
 Find all edges pointing to the database:
 
 ```bash
-gfx edges network.gexf --target db1
+grph edges network.gexf --target db1
 ```
 
 ### Filter by Attribute
@@ -97,7 +97,7 @@ gfx edges network.gexf --target db1
 Find all edges with a specific relationship:
 
 ```bash
-gfx edges network.gexf --attr relationship=queries
+grph edges network.gexf --attr relationship=queries
 ```
 
 ### Combine Filters (AND Logic)
@@ -105,19 +105,19 @@ gfx edges network.gexf --attr relationship=queries
 Find edges from server1 to db1:
 
 ```bash
-gfx edges network.gexf --source server1 --target db1
+grph edges network.gexf --source server1 --target db1
 ```
 
 Find query edges from server1:
 
 ```bash
-gfx edges network.gexf --source server1 --attr relationship=queries
+grph edges network.gexf --source server1 --attr relationship=queries
 ```
 
 ### JSON Output
 
 ```bash
-gfx edges network.gexf --source lb1 --json
+grph edges network.gexf --source lb1 --json
 ```
 
 ```json
@@ -150,7 +150,7 @@ gfx edges network.gexf --source lb1 --json
 ### Hide Attributes Column
 
 ```bash
-gfx edges network.gexf --no-attrs
+grph edges network.gexf --no-attrs
 ```
 
 ## Edge Properties
@@ -174,16 +174,16 @@ To find all edges connected to a node (both incoming and outgoing), run two quer
 
 ```bash
 # Outgoing edges
-gfx edges graph.gexf --source nodeA
+grph edges graph.gexf --source nodeA
 
 # Incoming edges
-gfx edges graph.gexf --target nodeA
+grph edges graph.gexf --target nodeA
 ```
 
 Or combine with JSON and jq:
 
 ```bash
-gfx edges graph.gexf --json | jq '[.[] | select(.source == "nodeA" or .target == "nodeA")]'
+grph edges graph.gexf --json | jq '[.[] | select(.source == "nodeA" or .target == "nodeA")]'
 ```
 
 ### Path Between Nodes
@@ -191,7 +191,7 @@ gfx edges graph.gexf --json | jq '[.[] | select(.source == "nodeA" or .target ==
 To check if there's a direct edge between two nodes:
 
 ```bash
-gfx edges graph.gexf --source nodeA --target nodeB
+grph edges graph.gexf --source nodeA --target nodeB
 ```
 
 If no edges are returned, there's no direct connection.

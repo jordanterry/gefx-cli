@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 from click.testing import CliRunner
 
-from gfx.cli import main
+from grph.cli import main
 
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
@@ -25,7 +25,7 @@ class TestBasicCommands:
         """Test help command."""
         result = runner.invoke(main, ["--help"])
         assert result.exit_code == 0
-        assert "GFX" in result.output
+        assert "grph" in result.output
 
     def test_version(self, runner: CliRunner) -> None:
         """Test version command."""

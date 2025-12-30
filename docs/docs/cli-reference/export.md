@@ -1,16 +1,16 @@
 ---
 sidebar_position: 18
-title: gfx export
+title: grph export
 ---
 
-# gfx export
+# grph export
 
 Export the graph to different formats.
 
 ## Synopsis
 
 ```bash
-gfx export <file> [--format json|graphml|adjlist|edgelist] [--output FILE]
+grph export <file> [--format json|graphml|adjlist|edgelist] [--output FILE]
 ```
 
 ## Description
@@ -38,7 +38,7 @@ The `export` command converts a GEXF graph to other common graph formats. This e
 Standard JSON format compatible with D3.js and other visualization libraries.
 
 ```bash
-gfx export network.gexf --format json
+grph export network.gexf --format json
 ```
 
 ```json
@@ -60,7 +60,7 @@ gfx export network.gexf --format json
 XML-based format widely supported by graph tools.
 
 ```bash
-gfx export network.gexf --format graphml --output network.graphml
+grph export network.gexf --format graphml --output network.graphml
 ```
 
 ### Adjacency List
@@ -68,7 +68,7 @@ gfx export network.gexf --format graphml --output network.graphml
 Simple text format showing each node and its neighbors.
 
 ```bash
-gfx export network.gexf --format adjlist
+grph export network.gexf --format adjlist
 ```
 
 ```
@@ -83,7 +83,7 @@ node4 node1
 Simple text format listing all edges.
 
 ```bash
-gfx export network.gexf --format edgelist
+grph export network.gexf --format edgelist
 ```
 
 ```
@@ -97,19 +97,19 @@ node2 node3 0.5
 ### Export to JSON File
 
 ```bash
-gfx export network.gexf --format json --output network.json
+grph export network.gexf --format json --output network.json
 ```
 
 ### Export to GraphML for Gephi
 
 ```bash
-gfx export network.gexf --format graphml --output network.graphml
+grph export network.gexf --format graphml --output network.graphml
 ```
 
 ### Pipe to Other Tools
 
 ```bash
-gfx export network.gexf --format edgelist | wc -l  # Count edges
+grph export network.gexf --format edgelist | wc -l  # Count edges
 ```
 
 ## Use Cases
@@ -117,20 +117,20 @@ gfx export network.gexf --format edgelist | wc -l  # Count edges
 ### Visualization with D3.js
 
 ```bash
-gfx export network.gexf --format json --output graph.json
+grph export network.gexf --format json --output graph.json
 # Use graph.json with D3.js force-directed layout
 ```
 
 ### Analysis in NetworkX
 
 ```bash
-gfx export network.gexf --format json --output graph.json
+grph export network.gexf --format json --output graph.json
 # Load in Python: nx.node_link_graph(json.load(open('graph.json')))
 ```
 
 ### Import into Other Tools
 
 ```bash
-gfx export network.gexf --format graphml --output graph.graphml
+grph export network.gexf --format graphml --output graph.graphml
 # Import into Gephi, Cytoscape, yEd, etc.
 ```

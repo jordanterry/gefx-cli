@@ -1,16 +1,16 @@
 ---
 sidebar_position: 4
-title: gfx nodes
+title: grph nodes
 ---
 
-# gfx nodes
+# grph nodes
 
 List and filter nodes in the graph.
 
 ## Synopsis
 
 ```bash
-gfx nodes <file> [--attr KEY=VALUE]... [--label PATTERN] [--json] [--no-attrs]
+grph nodes <file> [--attr KEY=VALUE]... [--label PATTERN] [--json] [--no-attrs]
 ```
 
 ## Description
@@ -43,7 +43,7 @@ When multiple filters are specified, they are combined with **AND logic** - a no
 ### List All Nodes
 
 ```bash
-gfx nodes network.gexf
+grph nodes network.gexf
 ```
 
 Output:
@@ -65,7 +65,7 @@ Output:
 Find all server nodes:
 
 ```bash
-gfx nodes network.gexf --attr type=server
+grph nodes network.gexf --attr type=server
 ```
 
 Output:
@@ -84,7 +84,7 @@ Output:
 Find nodes with labels starting with "Web":
 
 ```bash
-gfx nodes network.gexf --label "Web*"
+grph nodes network.gexf --label "Web*"
 ```
 
 ### Multiple Filters (AND Logic)
@@ -92,7 +92,7 @@ gfx nodes network.gexf --label "Web*"
 Find server nodes with weight=2.0:
 
 ```bash
-gfx nodes network.gexf --attr type=server --attr weight=2.0
+grph nodes network.gexf --attr type=server --attr weight=2.0
 ```
 
 This returns only nodes where **both** conditions are true.
@@ -100,7 +100,7 @@ This returns only nodes where **both** conditions are true.
 ### JSON Output
 
 ```bash
-gfx nodes network.gexf --attr type=server --json
+grph nodes network.gexf --attr type=server --json
 ```
 
 ```json
@@ -129,7 +129,7 @@ gfx nodes network.gexf --attr type=server --json
 For a cleaner view with just IDs and labels:
 
 ```bash
-gfx nodes network.gexf --no-attrs
+grph nodes network.gexf --no-attrs
 ```
 
 ```
@@ -173,5 +173,5 @@ Attribute values are compared as strings. This means:
 For complex filtering, use `--json` and pipe to `jq`:
 
 ```bash
-gfx nodes graph.gexf --json | jq '[.[] | select(.attributes.weight > 1.0)]'
+grph nodes graph.gexf --json | jq '[.[] | select(.attributes.weight > 1.0)]'
 ```

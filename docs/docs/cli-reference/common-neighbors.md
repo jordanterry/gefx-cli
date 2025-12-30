@@ -1,16 +1,16 @@
 ---
 sidebar_position: 11
-title: gfx common-neighbors
+title: grph common-neighbors
 ---
 
-# gfx common-neighbors
+# grph common-neighbors
 
 Find nodes that are neighbors of both given nodes.
 
 ## Synopsis
 
 ```bash
-gfx common-neighbors <file> <node1> <node2> [--json]
+grph common-neighbors <file> <node1> <node2> [--json]
 ```
 
 ## Description
@@ -37,7 +37,7 @@ The `common-neighbors` command finds nodes that are connected to both specified 
 ### Basic Usage
 
 ```bash
-gfx common-neighbors network.gexf server1 server2
+grph common-neighbors network.gexf server1 server2
 ```
 
 Output:
@@ -57,7 +57,7 @@ Common neighbors of server1 and server2
 ### JSON Output
 
 ```bash
-gfx common-neighbors network.gexf server1 server2 --json
+grph common-neighbors network.gexf server1 server2 --json
 ```
 
 ## Use Cases
@@ -67,7 +67,7 @@ gfx common-neighbors network.gexf server1 server2 --json
 Find libraries used by both modules:
 
 ```bash
-gfx common-neighbors dagger-graph.gexf FeatureA FeatureB
+grph common-neighbors dagger-graph.gexf FeatureA FeatureB
 ```
 
 ### Network Bridge Detection
@@ -75,7 +75,7 @@ gfx common-neighbors dagger-graph.gexf FeatureA FeatureB
 Find nodes connecting two parts of the network:
 
 ```bash
-gfx common-neighbors network.gexf subnetA subnetB
+grph common-neighbors network.gexf subnetA subnetB
 ```
 
 ### Similarity Analysis
@@ -83,5 +83,5 @@ gfx common-neighbors network.gexf subnetA subnetB
 Nodes with many common neighbors are often similar:
 
 ```bash
-gfx common-neighbors social-graph.gexf user1 user2 --json | jq 'length'
+grph common-neighbors social-graph.gexf user1 user2 --json | jq 'length'
 ```

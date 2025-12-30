@@ -4,20 +4,20 @@ slug: /
 title: Introduction
 ---
 
-# GFX CLI
+# grph CLI
 
 A powerful command-line tool for interrogating and browsing **GEXF** (Graph Exchange XML Format) graph files.
 
-## What is GFX CLI?
+## What is grph CLI?
 
-GFX CLI (`gfx`) is a Python-based command-line tool that allows you to:
+grph CLI (`grph`) is a Python-based command-line tool that allows you to:
 
 - **Inspect graph metadata** - View creator, description, modification dates, and graph properties
 - **Browse nodes** - List all nodes or filter by attributes and label patterns
 - **Browse edges** - List all edges or filter by source, target, type, and attributes
 - **Export to JSON** - Get machine-readable output for scripting and automation
 
-## Why GFX CLI?
+## Why grph CLI?
 
 Working with GEXF files typically requires loading them into a graph visualization tool like Gephi. But sometimes you just need to quickly:
 
@@ -26,19 +26,19 @@ Working with GEXF files typically requires loading them into a graph visualizati
 - Extract edges connecting specific nodes
 - Pipe graph data into other tools
 
-GFX CLI makes these tasks fast and scriptable from your terminal.
+grph CLI makes these tasks fast and scriptable from your terminal.
 
 ## Quick Example
 
 ```bash
 # Get a quick overview of a graph
-$ gfx info network.gexf
+$ grph info network.gexf
 
 # Find all nodes with type="server"
-$ gfx nodes network.gexf --attr type=server
+$ grph nodes network.gexf --attr type=server
 
 # Get edges from a specific node as JSON
-$ gfx edges network.gexf --source node1 --json
+$ grph edges network.gexf --source node1 --json
 ```
 
 ## Features

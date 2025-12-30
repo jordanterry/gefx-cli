@@ -1,16 +1,16 @@
 ---
 sidebar_position: 12
-title: gfx stats
+title: grph stats
 ---
 
-# gfx stats
+# grph stats
 
 Display comprehensive graph statistics.
 
 ## Synopsis
 
 ```bash
-gfx stats <file> [--json]
+grph stats <file> [--json]
 ```
 
 ## Description
@@ -45,7 +45,7 @@ The `stats` command provides detailed statistical analysis of the graph, includi
 ### Basic Usage
 
 ```bash
-gfx stats network.gexf
+grph stats network.gexf
 ```
 
 Output:
@@ -72,7 +72,7 @@ Output:
 ### JSON Output
 
 ```bash
-gfx stats network.gexf --json
+grph stats network.gexf --json
 ```
 
 ```json
@@ -117,7 +117,7 @@ The average number of steps needed to get from one node to another. Lower values
 Check if a dependency graph is well-structured:
 
 ```bash
-gfx stats dagger-graph.gexf
+grph stats dagger-graph.gexf
 # Check for cycles in dependency injection graph
 ```
 
@@ -126,5 +126,5 @@ gfx stats dagger-graph.gexf
 Analyze network topology:
 
 ```bash
-gfx stats network.gexf --json | jq '.density'
+grph stats network.gexf --json | jq '.density'
 ```

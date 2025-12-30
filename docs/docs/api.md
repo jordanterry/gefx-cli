@@ -5,7 +5,7 @@ title: Python API
 
 # Python API
 
-While GFX CLI is primarily a command-line tool, you can also use its components directly in Python code.
+While grph CLI is primarily a command-line tool, you can also use its components directly in Python code.
 
 ## Installation
 

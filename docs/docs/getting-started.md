@@ -5,7 +5,7 @@ title: Getting Started
 
 # Getting Started
 
-This guide will help you install GFX CLI and run your first commands.
+This guide will help you install grph CLI and run your first commands.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ For Homebrew installation:
 ### Homebrew (macOS/Linux)
 
 ```bash
-brew tap jordanterry/gefx-cli https://github.com/jordanterry/gefx-cli
+brew tap jordanterry/grph https://github.com/jordanterry/grph
 brew install gfx-cli
 ```
 
@@ -40,7 +40,7 @@ pipx install gfx-cli
 ### From Source
 
 ```bash
-git clone https://github.com/jordanterry/gefx-cli.git
+git clone https://github.com/jordanterry/grph.git
 cd gefx-cli
 pip install -e .
 ```
@@ -48,7 +48,7 @@ pip install -e .
 ### Verify Installation
 
 ```bash
-gfx --version
+grph --version
 # gfx, version 0.1.0
 ```
 
@@ -57,15 +57,15 @@ gfx --version
 ### 1. Get Help
 
 ```bash
-gfx --help
+grph --help
 ```
 
 This displays all available commands:
 
 ```
-Usage: gfx [OPTIONS] COMMAND [ARGS]...
+Usage: grph [OPTIONS] COMMAND [ARGS]...
 
-  GFX - A CLI tool for interrogating and browsing GEXF graph files.
+  grph - A CLI tool for interrogating and browsing GEXF graph files.
 
 Options:
   --version  Show the version and exit.
@@ -80,10 +80,10 @@ Commands:
 
 ### 2. Inspect a Graph
 
-Use `gfx info` to get a quick overview of your graph:
+Use `grph info` to get a quick overview of your graph:
 
 ```bash
-gfx info your-graph.gexf
+grph info your-graph.gexf
 ```
 
 Output:
@@ -107,7 +107,7 @@ Edge Attributes: relationship
 ### 3. List Nodes
 
 ```bash
-gfx nodes your-graph.gexf
+grph nodes your-graph.gexf
 ```
 
 Output:
@@ -129,7 +129,7 @@ Output:
 Find nodes with a specific attribute:
 
 ```bash
-gfx nodes your-graph.gexf --attr type=server
+grph nodes your-graph.gexf --attr type=server
 ```
 
 Output:
@@ -148,7 +148,7 @@ Output:
 Add `--json` to any command for machine-readable output:
 
 ```bash
-gfx nodes your-graph.gexf --attr type=server --json
+grph nodes your-graph.gexf --attr type=server --json
 ```
 
 ```json
@@ -174,8 +174,8 @@ gfx nodes your-graph.gexf --attr type=server --json
 
 ## Next Steps
 
-Now that you have GFX CLI installed and running, explore:
+Now that you have grph CLI installed and running, explore:
 
 - [CLI Reference](./cli-reference/) - Complete documentation for all commands
 - [Filtering Examples](./examples/filtering) - Advanced filtering techniques
-- [Scripting](./examples/scripting) - Using GFX CLI in scripts and pipelines
+- [Scripting](./examples/scripting) - Using grph CLI in scripts and pipelines

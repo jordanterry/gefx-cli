@@ -1,16 +1,16 @@
 ---
 sidebar_position: 13
-title: gfx centrality
+title: grph centrality
 ---
 
-# gfx centrality
+# grph centrality
 
 Calculate centrality metrics for nodes.
 
 ## Synopsis
 
 ```bash
-gfx centrality <file> [--type degree|betweenness|closeness|pagerank|eigenvector] [--top N] [--json]
+grph centrality <file> [--type degree|betweenness|closeness|pagerank|eigenvector] [--top N] [--json]
 ```
 
 ## Description
@@ -39,7 +39,7 @@ The `centrality` command calculates various centrality metrics to identify the m
 The simplest measure: how many connections a node has. Nodes with high degree centrality are "hubs" with many direct connections.
 
 ```bash
-gfx centrality network.gexf --type degree
+grph centrality network.gexf --type degree
 ```
 
 ### Betweenness Centrality
@@ -47,7 +47,7 @@ gfx centrality network.gexf --type degree
 Measures how often a node lies on the shortest path between other nodes. High betweenness nodes are "bridges" that control information flow.
 
 ```bash
-gfx centrality network.gexf --type betweenness
+grph centrality network.gexf --type betweenness
 ```
 
 ### Closeness Centrality
@@ -55,7 +55,7 @@ gfx centrality network.gexf --type betweenness
 Measures how close a node is to all other nodes. High closeness nodes can quickly reach or spread information to the entire network.
 
 ```bash
-gfx centrality network.gexf --type closeness
+grph centrality network.gexf --type closeness
 ```
 
 ### PageRank
@@ -63,7 +63,7 @@ gfx centrality network.gexf --type closeness
 Google's famous algorithm. Nodes are important if they are linked to by other important nodes. Good for finding authoritative nodes.
 
 ```bash
-gfx centrality network.gexf --type pagerank
+grph centrality network.gexf --type pagerank
 ```
 
 ### Eigenvector Centrality
@@ -71,7 +71,7 @@ gfx centrality network.gexf --type pagerank
 Similar to PageRank but for undirected graphs. A node is important if it's connected to other important nodes.
 
 ```bash
-gfx centrality network.gexf --type eigenvector
+grph centrality network.gexf --type eigenvector
 ```
 
 ## Examples
@@ -79,7 +79,7 @@ gfx centrality network.gexf --type eigenvector
 ### Basic Usage
 
 ```bash
-gfx centrality network.gexf
+grph centrality network.gexf
 ```
 
 Output:
@@ -97,13 +97,13 @@ Output:
 ### PageRank Analysis
 
 ```bash
-gfx centrality dagger-graph.gexf --type pagerank --top 20
+grph centrality dagger-graph.gexf --type pagerank --top 20
 ```
 
 ### JSON Output
 
 ```bash
-gfx centrality network.gexf --type betweenness --json
+grph centrality network.gexf --type betweenness --json
 ```
 
 ```json
@@ -124,7 +124,7 @@ gfx centrality network.gexf --type betweenness --json
 Use betweenness centrality to find components that many others depend on:
 
 ```bash
-gfx centrality dagger-graph.gexf --type betweenness --top 5
+grph centrality dagger-graph.gexf --type betweenness --top 5
 ```
 
 ### Identify Hub Components
@@ -132,7 +132,7 @@ gfx centrality dagger-graph.gexf --type betweenness --top 5
 Use degree centrality to find highly connected components:
 
 ```bash
-gfx centrality dagger-graph.gexf --type degree
+grph centrality dagger-graph.gexf --type degree
 ```
 
 ### Find Authoritative Sources
@@ -140,5 +140,5 @@ gfx centrality dagger-graph.gexf --type degree
 Use PageRank to find the most referenced nodes:
 
 ```bash
-gfx centrality citation-graph.gexf --type pagerank
+grph centrality citation-graph.gexf --type pagerank
 ```

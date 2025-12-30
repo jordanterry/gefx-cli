@@ -1,10 +1,11 @@
-class GfxCli < Formula
+class GrphCli < Formula
   include Language::Python::Virtualenv
 
-  desc "CLI tool for interrogating and browsing GEXF graph files"
-  homepage "https://jordanterry.github.io/gefx-cli/"
-  url "https://github.com/jordanterry/gefx-cli/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "7c85bc157b7f1062a8dae0c470e22024c28082956d7409021e846581027e1ef4"
+  desc "CLI tool for exploring, analyzing, and querying graph files"
+  homepage "https://jordanterry.github.io/grph/"
+  url "https://github.com/jordanterry/grph/archive/refs/tags/v0.3.0.tar.gz"
+  # sha256 will be updated after release
+  sha256 "PLACEHOLDER"
   license "MIT"
 
   depends_on "python@3.11"
@@ -44,6 +45,6 @@ class GfxCli < Formula
   end
 
   test do
-    assert_match "version", shell_output("#{bin}/gfx --version")
+    assert_match "version", shell_output("#{bin}/grph --version")
   end
 end

@@ -147,7 +147,7 @@ Here's a complete, valid GEXF file:
 <?xml version="1.0" encoding="UTF-8"?>
 <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2">
     <meta lastmodifieddate="2024-01-15">
-        <creator>GFX CLI Documentation</creator>
+        <creator>grph CLI Documentation</creator>
         <description>A simple infrastructure network</description>
     </meta>
     <graph mode="static" defaultedgetype="directed">
@@ -198,7 +198,7 @@ Here's a complete, valid GEXF file:
 
 ### Namespace Mismatch
 
-GFX CLI (via NetworkX) expects specific namespace URLs:
+grph CLI (via NetworkX) expects specific namespace URLs:
 
 | Version | Expected Namespace |
 |---------|-------------------|

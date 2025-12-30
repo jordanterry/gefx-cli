@@ -1,16 +1,16 @@
 ---
 sidebar_position: 7
-title: gfx path
+title: grph path
 ---
 
-# gfx path
+# grph path
 
 Find the shortest path between two nodes.
 
 ## Synopsis
 
 ```bash
-gfx path <file> <source> <target> [--weighted] [--json]
+grph path <file> <source> <target> [--weighted] [--json]
 ```
 
 ## Description
@@ -42,7 +42,7 @@ If no path exists between the nodes, the command will indicate this.
 Find the shortest path between two nodes:
 
 ```bash
-gfx path network.gexf lb1 db1
+grph path network.gexf lb1 db1
 ```
 
 Output:
@@ -58,7 +58,7 @@ Path: lb1 -> server1 -> db1
 Find the shortest path considering edge weights:
 
 ```bash
-gfx path network.gexf lb1 db1 --weighted
+grph path network.gexf lb1 db1 --weighted
 ```
 
 Output:
@@ -73,7 +73,7 @@ Path: lb1 -> server1 -> db1
 ### JSON Output
 
 ```bash
-gfx path network.gexf lb1 db1 --json
+grph path network.gexf lb1 db1 --json
 ```
 
 ```json
@@ -93,7 +93,7 @@ gfx path network.gexf lb1 db1 --json
 Find how two components are connected:
 
 ```bash
-gfx path dagger-graph.gexf MainActivity SharedRepository
+grph path dagger-graph.gexf MainActivity SharedRepository
 ```
 
 ### Network Routing
@@ -101,5 +101,5 @@ gfx path dagger-graph.gexf MainActivity SharedRepository
 Find the route between two network nodes:
 
 ```bash
-gfx path network.gexf client1 server5 --weighted
+grph path network.gexf client1 server5 --weighted
 ```

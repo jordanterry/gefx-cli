@@ -1,16 +1,16 @@
 ---
 sidebar_position: 14
-title: gfx components
+title: grph components
 ---
 
-# gfx components
+# grph components
 
 Analyze connected components in the graph.
 
 ## Synopsis
 
 ```bash
-gfx components <file> [--type connected|strongly|weakly] [--list] [--json]
+grph components <file> [--type connected|strongly|weakly] [--list] [--json]
 ```
 
 ## Description
@@ -41,7 +41,7 @@ For directed graphs, there are two types of connectivity:
 ### Basic Usage
 
 ```bash
-gfx components network.gexf
+grph components network.gexf
 ```
 
 Output:
@@ -62,7 +62,7 @@ Largest Component Size: 145
 ### Show Component Members
 
 ```bash
-gfx components network.gexf --list
+grph components network.gexf --list
 ```
 
 Output:
@@ -82,13 +82,13 @@ Output:
 For directed graphs, find strongly connected components:
 
 ```bash
-gfx components dagger-graph.gexf --type strongly
+grph components dagger-graph.gexf --type strongly
 ```
 
 ### JSON Output
 
 ```bash
-gfx components network.gexf --json
+grph components network.gexf --json
 ```
 
 ```json
@@ -111,7 +111,7 @@ gfx components network.gexf --json
 Identify nodes that aren't connected to the main graph:
 
 ```bash
-gfx components network.gexf --list | grep "Size: 1"
+grph components network.gexf --list | grep "Size: 1"
 ```
 
 ### Detect Circular Dependencies
@@ -119,7 +119,7 @@ gfx components network.gexf --list | grep "Size: 1"
 Strongly connected components in a dependency graph indicate circular dependencies:
 
 ```bash
-gfx components dagger-graph.gexf --type strongly --list
+grph components dagger-graph.gexf --type strongly --list
 # Any component with size > 1 has circular dependencies
 ```
 
@@ -128,5 +128,5 @@ gfx components dagger-graph.gexf --type strongly --list
 Check if the graph is fully connected:
 
 ```bash
-gfx components network.gexf --json | jq '.num_components == 1'
+grph components network.gexf --json | jq '.num_components == 1'
 ```

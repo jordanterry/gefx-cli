@@ -1,16 +1,16 @@
 ---
 sidebar_position: 15
-title: gfx degree
+title: grph degree
 ---
 
-# gfx degree
+# grph degree
 
 Show node degree information.
 
 ## Synopsis
 
 ```bash
-gfx degree <file> [--node NODE_ID] [--top N] [--json]
+grph degree <file> [--node NODE_ID] [--top N] [--json]
 ```
 
 ## Description
@@ -37,7 +37,7 @@ The `degree` command shows degree information for nodes. For directed graphs, it
 ### Top Nodes by Degree
 
 ```bash
-gfx degree network.gexf
+grph degree network.gexf
 ```
 
 Output for directed graph:
@@ -55,7 +55,7 @@ Output for directed graph:
 ### Specific Node
 
 ```bash
-gfx degree network.gexf --node server1
+grph degree network.gexf --node server1
 ```
 
 Output:
@@ -74,13 +74,13 @@ Output:
 ### More Results
 
 ```bash
-gfx degree network.gexf --top 25
+grph degree network.gexf --top 25
 ```
 
 ### JSON Output
 
 ```bash
-gfx degree network.gexf --json
+grph degree network.gexf --json
 ```
 
 ## Use Cases
@@ -90,7 +90,7 @@ gfx degree network.gexf --json
 Identify highly connected nodes:
 
 ```bash
-gfx degree network.gexf --top 5
+grph degree network.gexf --top 5
 ```
 
 ### Find Leaf Nodes
@@ -98,7 +98,7 @@ gfx degree network.gexf --top 5
 Nodes with low degree are often endpoints:
 
 ```bash
-gfx degree network.gexf --json | jq '.degrees | map(select(.total_degree == 1))'
+grph degree network.gexf --json | jq '.degrees | map(select(.total_degree == 1))'
 ```
 
 ### Dependency Analysis
@@ -106,7 +106,7 @@ gfx degree network.gexf --json | jq '.degrees | map(select(.total_degree == 1))'
 Find components with many dependencies:
 
 ```bash
-gfx degree dagger-graph.gexf --top 10
+grph degree dagger-graph.gexf --top 10
 # High out-degree = many dependencies
 # High in-degree = many dependents
 ```

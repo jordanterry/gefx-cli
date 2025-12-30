@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from gfx.parser import GEXFGraph, GEXFParseError
+from grph.parser import GEXFGraph, GEXFParseError
 
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
@@ -149,7 +149,7 @@ class TestModels:
 
     def test_node_to_dict(self) -> None:
         """Test Node.to_dict() serialization."""
-        from gfx.models import Node
+        from grph.models import Node
 
         node = Node(id="test", label="Test Node", attributes={"foo": "bar"})
         d = node.to_dict()
@@ -160,7 +160,7 @@ class TestModels:
 
     def test_edge_to_dict(self) -> None:
         """Test Edge.to_dict() serialization."""
-        from gfx.models import Edge
+        from grph.models import Edge
 
         edge = Edge(
             id="e1",
@@ -181,7 +181,7 @@ class TestModels:
 
     def test_metadata_to_dict(self) -> None:
         """Test GraphMetadata.to_dict() serialization."""
-        from gfx.models import GraphMetadata
+        from grph.models import GraphMetadata
 
         meta = GraphMetadata(
             creator="Test",

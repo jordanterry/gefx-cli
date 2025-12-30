@@ -1,16 +1,16 @@
 ---
 sidebar_position: 2
-title: gfx info
+title: grph info
 ---
 
-# gfx info
+# grph info
 
 Display a summary of the graph including node/edge counts and available attributes.
 
 ## Synopsis
 
 ```bash
-gfx info <file> [--json]
+grph info <file> [--json]
 ```
 
 ## Description
@@ -46,7 +46,7 @@ This is useful for quickly understanding the structure of an unfamiliar graph fi
 ### Basic Usage
 
 ```bash
-gfx info network.gexf
+grph info network.gexf
 ```
 
 Output:
@@ -70,7 +70,7 @@ Edge Attributes: relationship, strength
 ### JSON Output
 
 ```bash
-gfx info network.gexf --json
+grph info network.gexf --json
 ```
 
 ```json
@@ -93,7 +93,7 @@ gfx info network.gexf --json
 Before working with a new graph file, use `info` to understand its structure:
 
 ```bash
-gfx info unknown-graph.gexf
+grph info unknown-graph.gexf
 ```
 
 ### Scripting
@@ -101,7 +101,7 @@ gfx info unknown-graph.gexf
 Check if a graph has certain attributes before processing:
 
 ```bash
-if gfx info graph.gexf --json | jq -e '.node_attributes | contains(["type"])' > /dev/null; then
+if grph info graph.gexf --json | jq -e '.node_attributes | contains(["type"])' > /dev/null; then
   echo "Graph has 'type' attribute on nodes"
 fi
 ```
@@ -111,5 +111,5 @@ fi
 Verify a graph file is valid and get basic stats:
 
 ```bash
-gfx info graph.gexf && echo "File is valid"
+grph info graph.gexf && echo "File is valid"
 ```

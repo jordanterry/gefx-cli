@@ -1,4 +1,4 @@
-"""CLI entry point for the gfx tool."""
+"""CLI entry point for the grph tool."""
 
 import sys
 from pathlib import Path
@@ -71,20 +71,24 @@ def load_graph(file_path: str) -> GEXFGraph:
 
 
 @click.group()
-@click.version_option(version=__version__, prog_name="gfx")
+@click.version_option(version=__version__, prog_name="grph")
 def main() -> None:
-    """GFX - A CLI tool for interrogating and browsing GEXF graph files.
+    """grph - A CLI tool for exploring, analyzing, and querying graph files.
 
-    GEXF (Graph Exchange XML Format) is a standard format for representing
-    graph data, commonly used with tools like Gephi.
+    Like grep, but for graphs. Explore nodes, find paths, calculate centrality,
+    and analyze graph structure from the command line.
+
+    Supports GEXF format with export to JSON, GraphML, and more.
 
     Examples:
 
-        gfx info graph.gexf
+        grph info graph.gexf
 
-        gfx nodes graph.gexf --attr type=server
+        grph nodes graph.gexf --attr type=server
 
-        gfx edges graph.gexf --source node1 --json
+        grph path graph.gexf nodeA nodeB
+
+        grph centrality graph.gexf --type pagerank
     """
     pass
 
@@ -154,11 +158,11 @@ def nodes(
 
     Examples:
 
-        gfx nodes graph.gexf
+        grph nodes graph.gexf
 
-        gfx nodes graph.gexf --attr type=server
+        grph nodes graph.gexf --attr type=server
 
-        gfx nodes graph.gexf --label "Server*" --json
+        grph nodes graph.gexf --label "Server*" --json
     """
     graph = load_graph(file)
     matching_nodes = list(graph.nodes(attr_filters=attr_filters, label_pattern=label_pattern))
@@ -204,11 +208,11 @@ def edges(
 
     Examples:
 
-        gfx edges graph.gexf
+        grph edges graph.gexf
 
-        gfx edges graph.gexf --source node1
+        grph edges graph.gexf --source node1
 
-        gfx edges graph.gexf --attr weight=1.0 --json
+        grph edges graph.gexf --attr weight=1.0 --json
     """
     graph = load_graph(file)
     matching_edges = list(
@@ -261,9 +265,9 @@ def neighbors(
 
     Examples:
 
-        gfx neighbors graph.gexf server1
+        grph neighbors graph.gexf server1
 
-        gfx neighbors graph.gexf lb1 --direction out --depth 2
+        grph neighbors graph.gexf lb1 --direction out --depth 2
     """
     graph = load_graph(file)
 
@@ -301,9 +305,9 @@ def path(
 
     Examples:
 
-        gfx path graph.gexf server1 db1
+        grph path graph.gexf server1 db1
 
-        gfx path graph.gexf lb1 cache1 --weighted
+        grph path graph.gexf lb1 cache1 --weighted
     """
     graph = load_graph(file)
 
@@ -341,9 +345,9 @@ def all_paths(
 
     Examples:
 
-        gfx all-paths graph.gexf lb1 db1
+        grph all-paths graph.gexf lb1 db1
 
-        gfx all-paths graph.gexf lb1 cache1 --max-depth 3
+        grph all-paths graph.gexf lb1 cache1 --max-depth 3
     """
     graph = load_graph(file)
 
@@ -368,7 +372,7 @@ def has_path(file: str, source: str, target: str) -> None:
 
     Examples:
 
-        gfx has-path graph.gexf lb1 db1
+        grph has-path graph.gexf lb1 db1
     """
     graph = load_graph(file)
     exists = graph.has_path(source, target)
@@ -406,9 +410,9 @@ def reachable(
 
     Examples:
 
-        gfx reachable graph.gexf lb1
+        grph reachable graph.gexf lb1
 
-        gfx reachable graph.gexf db1 --direction backward
+        grph reachable graph.gexf db1 --direction backward
     """
     graph = load_graph(file)
 
@@ -446,7 +450,7 @@ def common_neighbors_cmd(
 
     Examples:
 
-        gfx common-neighbors graph.gexf server1 server2
+        grph common-neighbors graph.gexf server1 server2
     """
     graph = load_graph(file)
 
@@ -484,7 +488,7 @@ def stats(file: str, as_json: bool) -> None:
 
     Examples:
 
-        gfx stats graph.gexf
+        grph stats graph.gexf
     """
     graph = load_graph(file)
     graph_stats = graph.get_stats()
@@ -524,9 +528,9 @@ def centrality(
 
     Examples:
 
-        gfx centrality graph.gexf
+        grph centrality graph.gexf
 
-        gfx centrality graph.gexf --type pagerank --top 20
+        grph centrality graph.gexf --type pagerank --top 20
     """
     graph = load_graph(file)
 
@@ -562,9 +566,9 @@ def components(
 
     Examples:
 
-        gfx components graph.gexf
+        grph components graph.gexf
 
-        gfx components graph.gexf --type strongly --list
+        grph components graph.gexf --type strongly --list
     """
     graph = load_graph(file)
     result = graph.get_components(component_type)
@@ -598,11 +602,11 @@ def degree(
 
     Examples:
 
-        gfx degree graph.gexf
+        grph degree graph.gexf
 
-        gfx degree graph.gexf --node server1
+        grph degree graph.gexf --node server1
 
-        gfx degree graph.gexf --top 20
+        grph degree graph.gexf --top 20
     """
     graph = load_graph(file)
 
@@ -652,11 +656,11 @@ def ego(
 
     Examples:
 
-        gfx ego graph.gexf server1
+        grph ego graph.gexf server1
 
-        gfx ego graph.gexf lb1 --radius 2
+        grph ego graph.gexf lb1 --radius 2
 
-        gfx ego graph.gexf server1 --output server1-ego.gexf
+        grph ego graph.gexf server1 --output server1-ego.gexf
     """
     graph = load_graph(file)
 
@@ -709,9 +713,9 @@ def subgraph(
 
     Examples:
 
-        gfx subgraph graph.gexf --nodes server1,server2,db1
+        grph subgraph graph.gexf --nodes server1,server2,db1
 
-        gfx subgraph graph.gexf --nodes lb1,server1 --output subset.gexf
+        grph subgraph graph.gexf --nodes lb1,server1 --output subset.gexf
     """
     graph = load_graph(file)
 
@@ -767,9 +771,9 @@ def export(file: str, export_format: str, output: str | None) -> None:
 
     Examples:
 
-        gfx export graph.gexf --format json
+        grph export graph.gexf --format json
 
-        gfx export graph.gexf --format graphml --output graph.graphml
+        grph export graph.gexf --format graphml --output graph.graphml
     """
     graph = load_graph(file)
 

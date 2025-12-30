@@ -1,16 +1,16 @@
 ---
 sidebar_position: 6
-title: gfx neighbors
+title: grph neighbors
 ---
 
-# gfx neighbors
+# grph neighbors
 
 Find neighbors of a node in the graph.
 
 ## Synopsis
 
 ```bash
-gfx neighbors <file> <node_id> [--direction in|out|all] [--depth N] [--json]
+grph neighbors <file> <node_id> [--direction in|out|all] [--depth N] [--json]
 ```
 
 ## Description
@@ -42,7 +42,7 @@ Use the `--depth` option to find multi-hop neighbors (nodes within N edges of th
 Find all direct neighbors of a node:
 
 ```bash
-gfx neighbors network.gexf server1
+grph neighbors network.gexf server1
 ```
 
 ### Direction Control
@@ -50,13 +50,13 @@ gfx neighbors network.gexf server1
 Find only incoming neighbors (predecessors):
 
 ```bash
-gfx neighbors network.gexf db1 --direction in
+grph neighbors network.gexf db1 --direction in
 ```
 
 Find only outgoing neighbors (successors):
 
 ```bash
-gfx neighbors network.gexf lb1 --direction out
+grph neighbors network.gexf lb1 --direction out
 ```
 
 ### Multi-Hop Neighbors
@@ -64,13 +64,13 @@ gfx neighbors network.gexf lb1 --direction out
 Find all nodes within 2 hops:
 
 ```bash
-gfx neighbors network.gexf lb1 --depth 2
+grph neighbors network.gexf lb1 --depth 2
 ```
 
 ### JSON Output
 
 ```bash
-gfx neighbors network.gexf server1 --json
+grph neighbors network.gexf server1 --json
 ```
 
 ## Use Cases
@@ -80,7 +80,7 @@ gfx neighbors network.gexf server1 --json
 Find what a component depends on:
 
 ```bash
-gfx neighbors dagger-graph.gexf MyViewModel --direction out
+grph neighbors dagger-graph.gexf MyViewModel --direction out
 ```
 
 ### Impact Analysis
@@ -88,7 +88,7 @@ gfx neighbors dagger-graph.gexf MyViewModel --direction out
 Find what depends on a component:
 
 ```bash
-gfx neighbors dagger-graph.gexf SharedRepository --direction in
+grph neighbors dagger-graph.gexf SharedRepository --direction in
 ```
 
 ### Neighborhood Exploration
@@ -96,5 +96,5 @@ gfx neighbors dagger-graph.gexf SharedRepository --direction in
 Explore the local structure around a node:
 
 ```bash
-gfx neighbors network.gexf central-node --depth 3
+grph neighbors network.gexf central-node --depth 3
 ```

@@ -1,16 +1,16 @@
 ---
 sidebar_position: 10
-title: gfx reachable
+title: grph reachable
 ---
 
-# gfx reachable
+# grph reachable
 
 Find all nodes reachable from a given node.
 
 ## Synopsis
 
 ```bash
-gfx reachable <file> <node_id> [--direction forward|backward|both] [--max-depth N] [--json]
+grph reachable <file> <node_id> [--direction forward|backward|both] [--max-depth N] [--json]
 ```
 
 ## Description
@@ -40,7 +40,7 @@ The `reachable` command finds all nodes that can be reached from a starting node
 Find all nodes reachable from a starting point:
 
 ```bash
-gfx reachable network.gexf lb1
+grph reachable network.gexf lb1
 ```
 
 ### Backward Reachability (Ancestors)
@@ -48,7 +48,7 @@ gfx reachable network.gexf lb1
 Find all nodes that can reach a target:
 
 ```bash
-gfx reachable network.gexf db1 --direction backward
+grph reachable network.gexf db1 --direction backward
 ```
 
 ### Both Directions
@@ -56,7 +56,7 @@ gfx reachable network.gexf db1 --direction backward
 Find the entire connected component:
 
 ```bash
-gfx reachable network.gexf server1 --direction both
+grph reachable network.gexf server1 --direction both
 ```
 
 ### Depth-Limited Search
@@ -64,7 +64,7 @@ gfx reachable network.gexf server1 --direction both
 Find nodes within 2 hops:
 
 ```bash
-gfx reachable network.gexf lb1 --max-depth 2
+grph reachable network.gexf lb1 --max-depth 2
 ```
 
 ## Use Cases
@@ -74,7 +74,7 @@ gfx reachable network.gexf lb1 --max-depth 2
 Find all components affected by a change:
 
 ```bash
-gfx reachable dagger-graph.gexf SharedRepository --direction backward
+grph reachable dagger-graph.gexf SharedRepository --direction backward
 # Shows everything that depends on SharedRepository
 ```
 
@@ -83,7 +83,7 @@ gfx reachable dagger-graph.gexf SharedRepository --direction backward
 Find all dependencies of a component:
 
 ```bash
-gfx reachable dagger-graph.gexf MainActivity --direction forward
+grph reachable dagger-graph.gexf MainActivity --direction forward
 # Shows everything MainActivity depends on
 ```
 
@@ -92,5 +92,5 @@ gfx reachable dagger-graph.gexf MainActivity --direction forward
 Find all transitively connected nodes:
 
 ```bash
-gfx reachable network.gexf central-node --direction both
+grph reachable network.gexf central-node --direction both
 ```

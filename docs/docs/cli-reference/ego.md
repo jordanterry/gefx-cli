@@ -1,16 +1,16 @@
 ---
 sidebar_position: 16
-title: gfx ego
+title: grph ego
 ---
 
-# gfx ego
+# grph ego
 
 Extract the ego graph (neighborhood) around a node.
 
 ## Synopsis
 
 ```bash
-gfx ego <file> <node_id> [--radius N] [--output FILE] [--json]
+grph ego <file> <node_id> [--radius N] [--output FILE] [--json]
 ```
 
 ## Description
@@ -40,7 +40,7 @@ For directed graphs, the ego graph follows outgoing edges.
 ### Basic Usage
 
 ```bash
-gfx ego network.gexf server1
+grph ego network.gexf server1
 ```
 
 Output:
@@ -59,18 +59,18 @@ Ego graph for server1 (radius=1)
 ### Larger Radius
 
 ```bash
-gfx ego network.gexf lb1 --radius 2
+grph ego network.gexf lb1 --radius 2
 ```
 
 ### Save to File
 
 ```bash
-gfx ego network.gexf server1 --output server1-neighborhood.gexf
+grph ego network.gexf server1 --output server1-neighborhood.gexf
 ```
 
 Creates a new GEXF file containing only the ego subgraph, which can be:
 - Opened in Gephi for visualization
-- Further analyzed with other gfx commands
+- Further analyzed with other grph commands
 
 ## Use Cases
 
@@ -79,8 +79,8 @@ Creates a new GEXF file containing only the ego subgraph, which can be:
 Extract and analyze a specific component's dependencies:
 
 ```bash
-gfx ego dagger-graph.gexf MyViewModel --radius 2 --output viewmodel-deps.gexf
-gfx stats viewmodel-deps.gexf
+grph ego dagger-graph.gexf MyViewModel --radius 2 --output viewmodel-deps.gexf
+grph stats viewmodel-deps.gexf
 ```
 
 ### Create Visualization Subset
@@ -88,7 +88,7 @@ gfx stats viewmodel-deps.gexf
 Extract a manageable subset for visualization:
 
 ```bash
-gfx ego large-graph.gexf important-node --radius 3 --output subset.gexf
+grph ego large-graph.gexf important-node --radius 3 --output subset.gexf
 # Open subset.gexf in Gephi
 ```
 
@@ -97,5 +97,5 @@ gfx ego large-graph.gexf important-node --radius 3 --output subset.gexf
 Analyze the local structure around a node:
 
 ```bash
-gfx ego network.gexf hub --radius 2 --json
+grph ego network.gexf hub --radius 2 --json
 ```
