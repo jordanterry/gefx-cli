@@ -69,7 +69,7 @@ jobs:
         id: sha
         run: |
           TAG="${{ steps.version.outputs.tag }}"
-          curl -sL "https://github.com/jordanterry/gefx-cli/archive/refs/tags/${TAG}.tar.gz" -o release.tar.gz
+          curl -sL "https://github.com/jordanterry/grph/archive/refs/tags/${TAG}.tar.gz" -o release.tar.gz
           SHA256=$(sha256sum release.tar.gz | cut -d' ' -f1)
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
 
@@ -79,15 +79,15 @@ jobs:
           SHA256="${{ steps.sha.outputs.sha256 }}"
 
           # Update version in URL (line 6)
-          sed -i "6s|archive/refs/tags/v[^\"]*\.tar\.gz|archive/refs/tags/${TAG}.tar.gz|" Formula/gfx-cli.rb
+          sed -i "6s|archive/refs/tags/v[^\"]*\.tar\.gz|archive/refs/tags/${TAG}.tar.gz|" Formula/grph-cli.rb
 
           # Update only the main package SHA256 (line 7), not the dependency SHA256s
-          sed -i "7s|sha256 \"[^\"]*\"|sha256 \"${SHA256}\"|" Formula/gfx-cli.rb
+          sed -i "7s|sha256 \"[^\"]*\"|sha256 \"${SHA256}\"|" Formula/grph-cli.rb
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Formula/gfx-cli.rb
+          git add Formula/grph-cli.rb
           git diff --staged --quiet || git commit -m "Update Homebrew formula to ${{ steps.version.outputs.tag }}"
           git push
