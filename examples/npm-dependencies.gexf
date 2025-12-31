@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3">
+  <meta lastmodifieddate="2024-01-15">
+    <creator>grph examples</creator>
+    <description>npm package dependency graph for a typical React application. Shows dependencies, dev dependencies, and transitive relationships.</description>
+    <keywords>npm, dependencies, packages, javascript, react</keywords>
+  </meta>
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="0" title="version" type="string"/>
+      <attribute id="1" title="type" type="string"/>
+      <attribute id="2" title="downloads_weekly" type="integer"/>
+      <attribute id="3" title="deprecated" type="boolean"/>
+    </attributes>
+    <attributes class="edge">
+      <attribute id="0" title="dependency_type" type="string"/>
+      <attribute id="1" title="version_constraint" type="string"/>
+    </attributes>
+    <nodes>
+      <!-- Application -->
+      <node id="my-app" label="my-app">
+        <attvalues>
+          <attvalue for="0" value="1.0.0"/>
+          <attvalue for="1" value="application"/>
+          <attvalue for="2" value="0"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- React Core -->
+      <node id="react" label="react">
+        <attvalues>
+          <attvalue for="0" value="18.2.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="20000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="react-dom" label="react-dom">
+        <attvalues>
+          <attvalue for="0" value="18.2.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="18000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="scheduler" label="scheduler">
+        <attvalues>
+          <attvalue for="0" value="0.23.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="15000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- State Management -->
+      <node id="redux" label="redux">
+        <attvalues>
+          <attvalue for="0" value="5.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="8000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="react-redux" label="react-redux">
+        <attvalues>
+          <attvalue for="0" value="9.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="6000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@reduxjs/toolkit" label="@reduxjs/toolkit">
+        <attvalues>
+          <attvalue for="0" value="2.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="4000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="immer" label="immer">
+        <attvalues>
+          <attvalue for="0" value="10.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="9000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="reselect" label="reselect">
+        <attvalues>
+          <attvalue for="0" value="5.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="5000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Routing -->
+      <node id="react-router" label="react-router">
+        <attvalues>
+          <attvalue for="0" value="6.20.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="10000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="react-router-dom" label="react-router-dom">
+        <attvalues>
+          <attvalue for="0" value="6.20.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="9000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@remix-run/router" label="@remix-run/router">
+        <attvalues>
+          <attvalue for="0" value="1.13.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="8000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- HTTP/Data Fetching -->
+      <node id="axios" label="axios">
+        <attvalues>
+          <attvalue for="0" value="1.6.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="45000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@tanstack/react-query" label="@tanstack/react-query">
+        <attvalues>
+          <attvalue for="0" value="5.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="2000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@tanstack/query-core" label="@tanstack/query-core">
+        <attvalues>
+          <attvalue for="0" value="5.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="2000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Utilities -->
+      <node id="lodash" label="lodash">
+        <attvalues>
+          <attvalue for="0" value="4.17.21"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="50000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="date-fns" label="date-fns">
+        <attvalues>
+          <attvalue for="0" value="3.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="15000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="uuid" label="uuid">
+        <attvalues>
+          <attvalue for="0" value="9.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="70000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Form Handling -->
+      <node id="formik" label="formik">
+        <attvalues>
+          <attvalue for="0" value="2.4.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="2500000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="yup" label="yup">
+        <attvalues>
+          <attvalue for="0" value="1.3.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="6000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Styling -->
+      <node id="styled-components" label="styled-components">
+        <attvalues>
+          <attvalue for="0" value="6.1.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="4000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="stylis" label="stylis">
+        <attvalues>
+          <attvalue for="0" value="4.3.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="12000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@emotion/is-prop-valid" label="@emotion/is-prop-valid">
+        <attvalues>
+          <attvalue for="0" value="1.2.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="3000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@emotion/unitless" label="@emotion/unitless">
+        <attvalues>
+          <attvalue for="0" value="0.8.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="4000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@emotion/memoize" label="@emotion/memoize">
+        <attvalues>
+          <attvalue for="0" value="0.8.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="3000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Testing (devDependencies) -->
+      <node id="jest" label="jest">
+        <attvalues>
+          <attvalue for="0" value="29.7.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="20000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@testing-library/react" label="@testing-library/react">
+        <attvalues>
+          <attvalue for="0" value="14.1.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="8000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@testing-library/dom" label="@testing-library/dom">
+        <attvalues>
+          <attvalue for="0" value="9.3.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="10000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="@testing-library/jest-dom" label="@testing-library/jest-dom">
+        <attvalues>
+          <attvalue for="0" value="6.1.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="6000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Build Tools -->
+      <node id="typescript" label="typescript">
+        <attvalues>
+          <attvalue for="0" value="5.3.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="45000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="vite" label="vite">
+        <attvalues>
+          <attvalue for="0" value="5.0.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="12000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="esbuild" label="esbuild">
+        <attvalues>
+          <attvalue for="0" value="0.19.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="18000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="rollup" label="rollup">
+        <attvalues>
+          <attvalue for="0" value="4.6.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="10000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="eslint" label="eslint">
+        <attvalues>
+          <attvalue for="0" value="8.55.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="30000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="prettier" label="prettier">
+        <attvalues>
+          <attvalue for="0" value="3.1.0"/>
+          <attvalue for="1" value="dev"/>
+          <attvalue for="2" value="30000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Deprecated package for demo -->
+      <node id="request" label="request">
+        <attvalues>
+          <attvalue for="0" value="2.88.2"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="20000000"/>
+          <attvalue for="3" value="true"/>
+        </attvalues>
+      </node>
+
+      <!-- Shared low-level deps -->
+      <node id="loose-envify" label="loose-envify">
+        <attvalues>
+          <attvalue for="0" value="1.4.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="50000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+      <node id="js-tokens" label="js-tokens">
+        <attvalues>
+          <attvalue for="0" value="4.0.0"/>
+          <attvalue for="1" value="library"/>
+          <attvalue for="2" value="60000000"/>
+          <attvalue for="3" value="false"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <!-- App direct dependencies -->
+      <edge id="0" source="my-app" target="react"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^18.2.0"/></attvalues></edge>
+      <edge id="1" source="my-app" target="react-dom"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^18.2.0"/></attvalues></edge>
+      <edge id="2" source="my-app" target="@reduxjs/toolkit"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^2.0.0"/></attvalues></edge>
+      <edge id="3" source="my-app" target="react-redux"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^9.0.0"/></attvalues></edge>
+      <edge id="4" source="my-app" target="react-router-dom"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^6.20.0"/></attvalues></edge>
+      <edge id="5" source="my-app" target="axios"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.6.0"/></attvalues></edge>
+      <edge id="6" source="my-app" target="@tanstack/react-query"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^5.0.0"/></attvalues></edge>
+      <edge id="7" source="my-app" target="lodash"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^4.17.21"/></attvalues></edge>
+      <edge id="8" source="my-app" target="date-fns"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^3.0.0"/></attvalues></edge>
+      <edge id="9" source="my-app" target="uuid"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^9.0.0"/></attvalues></edge>
+      <edge id="10" source="my-app" target="formik"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^2.4.0"/></attvalues></edge>
+      <edge id="11" source="my-app" target="yup"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.3.0"/></attvalues></edge>
+      <edge id="12" source="my-app" target="styled-components"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^6.1.0"/></attvalues></edge>
+
+      <!-- App devDependencies -->
+      <edge id="13" source="my-app" target="typescript"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^5.3.0"/></attvalues></edge>
+      <edge id="14" source="my-app" target="vite"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^5.0.0"/></attvalues></edge>
+      <edge id="15" source="my-app" target="jest"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^29.7.0"/></attvalues></edge>
+      <edge id="16" source="my-app" target="@testing-library/react"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^14.1.0"/></attvalues></edge>
+      <edge id="17" source="my-app" target="@testing-library/jest-dom"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^6.1.0"/></attvalues></edge>
+      <edge id="18" source="my-app" target="eslint"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^8.55.0"/></attvalues></edge>
+      <edge id="19" source="my-app" target="prettier"><attvalues><attvalue for="0" value="devDependency"/><attvalue for="1" value="^3.1.0"/></attvalues></edge>
+
+      <!-- Legacy deprecated dependency -->
+      <edge id="20" source="my-app" target="request"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^2.88.0"/></attvalues></edge>
+
+      <!-- React internal dependencies -->
+      <edge id="21" source="react" target="loose-envify"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.1.0"/></attvalues></edge>
+      <edge id="22" source="react-dom" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^18.2.0"/></attvalues></edge>
+      <edge id="23" source="react-dom" target="scheduler"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^0.23.0"/></attvalues></edge>
+      <edge id="24" source="react-dom" target="loose-envify"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.1.0"/></attvalues></edge>
+      <edge id="25" source="scheduler" target="loose-envify"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.1.0"/></attvalues></edge>
+      <edge id="26" source="loose-envify" target="js-tokens"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^3.0.0 || ^4.0.0"/></attvalues></edge>
+
+      <!-- Redux ecosystem -->
+      <edge id="27" source="@reduxjs/toolkit" target="redux"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^5.0.0"/></attvalues></edge>
+      <edge id="28" source="@reduxjs/toolkit" target="immer"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^10.0.0"/></attvalues></edge>
+      <edge id="29" source="@reduxjs/toolkit" target="reselect"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^5.0.0"/></attvalues></edge>
+      <edge id="30" source="react-redux" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^18.0.0"/></attvalues></edge>
+      <edge id="31" source="react-redux" target="redux"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^5.0.0"/></attvalues></edge>
+
+      <!-- React Router -->
+      <edge id="32" source="react-router-dom" target="react-router"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="6.20.0"/></attvalues></edge>
+      <edge id="33" source="react-router-dom" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value=">=16.8"/></attvalues></edge>
+      <edge id="34" source="react-router" target="@remix-run/router"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="1.13.0"/></attvalues></edge>
+
+      <!-- React Query -->
+      <edge id="35" source="@tanstack/react-query" target="@tanstack/query-core"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="5.0.0"/></attvalues></edge>
+      <edge id="36" source="@tanstack/react-query" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^18.0.0"/></attvalues></edge>
+
+      <!-- Formik -->
+      <edge id="37" source="formik" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value=">=16.8.0"/></attvalues></edge>
+      <edge id="38" source="formik" target="lodash"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^4.17.21"/></attvalues></edge>
+
+      <!-- Styled Components -->
+      <edge id="39" source="styled-components" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value=">= 16.8.0"/></attvalues></edge>
+      <edge id="40" source="styled-components" target="react-dom"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value=">= 16.8.0"/></attvalues></edge>
+      <edge id="41" source="styled-components" target="stylis"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="4.3.0"/></attvalues></edge>
+      <edge id="42" source="styled-components" target="@emotion/is-prop-valid"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^1.2.0"/></attvalues></edge>
+      <edge id="43" source="styled-components" target="@emotion/unitless"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^0.8.0"/></attvalues></edge>
+      <edge id="44" source="@emotion/is-prop-valid" target="@emotion/memoize"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^0.8.0"/></attvalues></edge>
+
+      <!-- Testing Library -->
+      <edge id="45" source="@testing-library/react" target="@testing-library/dom"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^9.3.0"/></attvalues></edge>
+      <edge id="46" source="@testing-library/react" target="react"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^18.0.0"/></attvalues></edge>
+      <edge id="47" source="@testing-library/react" target="react-dom"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value="^18.0.0"/></attvalues></edge>
+      <edge id="48" source="@testing-library/jest-dom" target="@testing-library/dom"><attvalues><attvalue for="0" value="peerDependency"/><attvalue for="1" value=">=7.21.4"/></attvalues></edge>
+
+      <!-- Vite -->
+      <edge id="49" source="vite" target="esbuild"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^0.19.0"/></attvalues></edge>
+      <edge id="50" source="vite" target="rollup"><attvalues><attvalue for="0" value="dependency"/><attvalue for="1" value="^4.2.0"/></attvalues></edge>
+    </edges>
+  </graph>
+</gexf>

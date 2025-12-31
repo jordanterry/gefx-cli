@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3">
+  <meta lastmodifieddate="2024-01-15">
+    <creator>grph examples</creator>
+    <description>EasyJet European route network. Nodes are airports, edges are flight routes with duration and distance. Perfect for crew routing and hub analysis.</description>
+    <keywords>aviation, flights, routing, easyjet, europe</keywords>
+  </meta>
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="0" title="city" type="string"/>
+      <attribute id="1" title="country" type="string"/>
+      <attribute id="2" title="hub" type="boolean"/>
+      <attribute id="3" title="iata" type="string"/>
+    </attributes>
+    <attributes class="edge">
+      <attribute id="0" title="flight_time_hrs" type="float"/>
+      <attribute id="1" title="distance_km" type="integer"/>
+      <attribute id="2" title="frequency_weekly" type="integer"/>
+    </attributes>
+    <nodes>
+      <!-- UK Bases -->
+      <node id="LTN" label="London Luton">
+        <attvalues>
+          <attvalue for="0" value="London"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="LTN"/>
+        </attvalues>
+      </node>
+      <node id="LGW" label="London Gatwick">
+        <attvalues>
+          <attvalue for="0" value="London"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="LGW"/>
+        </attvalues>
+      </node>
+      <node id="STN" label="London Stansted">
+        <attvalues>
+          <attvalue for="0" value="London"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="STN"/>
+        </attvalues>
+      </node>
+      <node id="BRS" label="Bristol">
+        <attvalues>
+          <attvalue for="0" value="Bristol"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="BRS"/>
+        </attvalues>
+      </node>
+      <node id="EDI" label="Edinburgh">
+        <attvalues>
+          <attvalue for="0" value="Edinburgh"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="EDI"/>
+        </attvalues>
+      </node>
+      <node id="MAN" label="Manchester">
+        <attvalues>
+          <attvalue for="0" value="Manchester"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="MAN"/>
+        </attvalues>
+      </node>
+      <node id="BFS" label="Belfast">
+        <attvalues>
+          <attvalue for="0" value="Belfast"/>
+          <attvalue for="1" value="UK"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="BFS"/>
+        </attvalues>
+      </node>
+
+      <!-- European Hubs -->
+      <node id="AMS" label="Amsterdam Schiphol">
+        <attvalues>
+          <attvalue for="0" value="Amsterdam"/>
+          <attvalue for="1" value="Netherlands"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="AMS"/>
+        </attvalues>
+      </node>
+      <node id="CDG" label="Paris Charles de Gaulle">
+        <attvalues>
+          <attvalue for="0" value="Paris"/>
+          <attvalue for="1" value="France"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="CDG"/>
+        </attvalues>
+      </node>
+      <node id="ORY" label="Paris Orly">
+        <attvalues>
+          <attvalue for="0" value="Paris"/>
+          <attvalue for="1" value="France"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="ORY"/>
+        </attvalues>
+      </node>
+      <node id="BCN" label="Barcelona El Prat">
+        <attvalues>
+          <attvalue for="0" value="Barcelona"/>
+          <attvalue for="1" value="Spain"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="BCN"/>
+        </attvalues>
+      </node>
+      <node id="FCO" label="Rome Fiumicino">
+        <attvalues>
+          <attvalue for="0" value="Rome"/>
+          <attvalue for="1" value="Italy"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="FCO"/>
+        </attvalues>
+      </node>
+      <node id="MXP" label="Milan Malpensa">
+        <attvalues>
+          <attvalue for="0" value="Milan"/>
+          <attvalue for="1" value="Italy"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="MXP"/>
+        </attvalues>
+      </node>
+      <node id="BER" label="Berlin Brandenburg">
+        <attvalues>
+          <attvalue for="0" value="Berlin"/>
+          <attvalue for="1" value="Germany"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="BER"/>
+        </attvalues>
+      </node>
+      <node id="GVA" label="Geneva">
+        <attvalues>
+          <attvalue for="0" value="Geneva"/>
+          <attvalue for="1" value="Switzerland"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="GVA"/>
+        </attvalues>
+      </node>
+      <node id="ZRH" label="Zurich">
+        <attvalues>
+          <attvalue for="0" value="Zurich"/>
+          <attvalue for="1" value="Switzerland"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="ZRH"/>
+        </attvalues>
+      </node>
+      <node id="LIS" label="Lisbon">
+        <attvalues>
+          <attvalue for="0" value="Lisbon"/>
+          <attvalue for="1" value="Portugal"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="LIS"/>
+        </attvalues>
+      </node>
+      <node id="CPH" label="Copenhagen">
+        <attvalues>
+          <attvalue for="0" value="Copenhagen"/>
+          <attvalue for="1" value="Denmark"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="CPH"/>
+        </attvalues>
+      </node>
+
+      <!-- Holiday Destinations -->
+      <node id="PMI" label="Palma de Mallorca">
+        <attvalues>
+          <attvalue for="0" value="Palma"/>
+          <attvalue for="1" value="Spain"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="PMI"/>
+        </attvalues>
+      </node>
+      <node id="AGP" label="Malaga">
+        <attvalues>
+          <attvalue for="0" value="Malaga"/>
+          <attvalue for="1" value="Spain"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="AGP"/>
+        </attvalues>
+      </node>
+      <node id="FAO" label="Faro">
+        <attvalues>
+          <attvalue for="0" value="Faro"/>
+          <attvalue for="1" value="Portugal"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="FAO"/>
+        </attvalues>
+      </node>
+      <node id="NCE" label="Nice">
+        <attvalues>
+          <attvalue for="0" value="Nice"/>
+          <attvalue for="1" value="France"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="NCE"/>
+        </attvalues>
+      </node>
+      <node id="VCE" label="Venice Marco Polo">
+        <attvalues>
+          <attvalue for="0" value="Venice"/>
+          <attvalue for="1" value="Italy"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="VCE"/>
+        </attvalues>
+      </node>
+      <node id="NAP" label="Naples">
+        <attvalues>
+          <attvalue for="0" value="Naples"/>
+          <attvalue for="1" value="Italy"/>
+          <attvalue for="2" value="true"/>
+          <attvalue for="3" value="NAP"/>
+        </attvalues>
+      </node>
+      <node id="DBV" label="Dubrovnik">
+        <attvalues>
+          <attvalue for="0" value="Dubrovnik"/>
+          <attvalue for="1" value="Croatia"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="DBV"/>
+        </attvalues>
+      </node>
+      <node id="ATH" label="Athens">
+        <attvalues>
+          <attvalue for="0" value="Athens"/>
+          <attvalue for="1" value="Greece"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="ATH"/>
+        </attvalues>
+      </node>
+      <node id="CFU" label="Corfu">
+        <attvalues>
+          <attvalue for="0" value="Corfu"/>
+          <attvalue for="1" value="Greece"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="CFU"/>
+        </attvalues>
+      </node>
+      <node id="SPU" label="Split">
+        <attvalues>
+          <attvalue for="0" value="Split"/>
+          <attvalue for="1" value="Croatia"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="SPU"/>
+        </attvalues>
+      </node>
+      <node id="TFS" label="Tenerife South">
+        <attvalues>
+          <attvalue for="0" value="Tenerife"/>
+          <attvalue for="1" value="Spain"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="TFS"/>
+        </attvalues>
+      </node>
+      <node id="RAK" label="Marrakech">
+        <attvalues>
+          <attvalue for="0" value="Marrakech"/>
+          <attvalue for="1" value="Morocco"/>
+          <attvalue for="2" value="false"/>
+          <attvalue for="3" value="RAK"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <!-- From London Luton -->
+      <edge id="0" source="LTN" target="AMS"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="370"/><attvalue for="2" value="28"/></attvalues></edge>
+      <edge id="1" source="LTN" target="CDG"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="340"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="2" source="LTN" target="BCN"><attvalues><attvalue for="0" value="2.2"/><attvalue for="1" value="1140"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="3" source="LTN" target="GVA"><attvalues><attvalue for="0" value="1.7"/><attvalue for="1" value="750"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="4" source="LTN" target="EDI"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="530"/><attvalue for="2" value="35"/></attvalues></edge>
+      <edge id="5" source="LTN" target="BFS"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="480"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="6" source="LTN" target="PMI"><attvalues><attvalue for="0" value="2.3"/><attvalue for="1" value="1350"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="7" source="LTN" target="AGP"><attvalues><attvalue for="0" value="2.8"/><attvalue for="1" value="1700"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="8" source="LTN" target="FAO"><attvalues><attvalue for="0" value="2.7"/><attvalue for="1" value="1700"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="9" source="LTN" target="TFS"><attvalues><attvalue for="0" value="4.3"/><attvalue for="1" value="2900"/><attvalue for="2" value="7"/></attvalues></edge>
+
+      <!-- From London Gatwick -->
+      <edge id="10" source="LGW" target="BCN"><attvalues><attvalue for="0" value="2.1"/><attvalue for="1" value="1100"/><attvalue for="2" value="28"/></attvalues></edge>
+      <edge id="11" source="LGW" target="FCO"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1440"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="12" source="LGW" target="MXP"><attvalues><attvalue for="0" value="1.9"/><attvalue for="1" value="980"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="13" source="LGW" target="NCE"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="1000"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="14" source="LGW" target="VCE"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1100"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="15" source="LGW" target="NAP"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1600"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="16" source="LGW" target="DBV"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1700"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="17" source="LGW" target="ATH"><attvalues><attvalue for="0" value="3.5"/><attvalue for="1" value="2400"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="18" source="LGW" target="CFU"><attvalues><attvalue for="0" value="3.0"/><attvalue for="1" value="2000"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="19" source="LGW" target="SPU"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1600"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="20" source="LGW" target="LIS"><attvalues><attvalue for="0" value="2.7"/><attvalue for="1" value="1600"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="21" source="LGW" target="RAK"><attvalues><attvalue for="0" value="3.5"/><attvalue for="1" value="2300"/><attvalue for="2" value="7"/></attvalues></edge>
+
+      <!-- From Edinburgh -->
+      <edge id="22" source="EDI" target="LTN"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="530"/><attvalue for="2" value="35"/></attvalues></edge>
+      <edge id="23" source="EDI" target="LGW"><attvalues><attvalue for="0" value="1.4"/><attvalue for="1" value="550"/><attvalue for="2" value="28"/></attvalues></edge>
+      <edge id="24" source="EDI" target="AMS"><attvalues><attvalue for="0" value="1.5"/><attvalue for="1" value="680"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="25" source="EDI" target="CDG"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="870"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="26" source="EDI" target="BCN"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1650"/><attvalue for="2" value="7"/></attvalues></edge>
+
+      <!-- From Bristol -->
+      <edge id="27" source="BRS" target="AMS"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="490"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="28" source="BRS" target="BCN"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1130"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="29" source="BRS" target="FAO"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1500"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="30" source="BRS" target="PMI"><attvalues><attvalue for="0" value="2.2"/><attvalue for="1" value="1280"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="31" source="BRS" target="GVA"><attvalues><attvalue for="0" value="1.5"/><attvalue for="1" value="700"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="32" source="BRS" target="NCE"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="950"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="33" source="BRS" target="EDI"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="490"/><attvalue for="2" value="21"/></attvalues></edge>
+
+      <!-- From Manchester -->
+      <edge id="34" source="MAN" target="AMS"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="490"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="35" source="MAN" target="BCN"><attvalues><attvalue for="0" value="2.3"/><attvalue for="1" value="1350"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="36" source="MAN" target="GVA"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="900"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="37" source="MAN" target="FCO"><attvalues><attvalue for="0" value="2.6"/><attvalue for="1" value="1600"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="38" source="MAN" target="PMI"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1500"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <!-- European Hub Connections -->
+      <edge id="39" source="AMS" target="BCN"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1230"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="40" source="AMS" target="BER"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="580"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="41" source="AMS" target="MXP"><attvalues><attvalue for="0" value="1.5"/><attvalue for="1" value="820"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="42" source="AMS" target="NCE"><attvalues><attvalue for="0" value="1.7"/><attvalue for="1" value="920"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="43" source="AMS" target="LTN"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="370"/><attvalue for="2" value="28"/></attvalues></edge>
+      <edge id="44" source="AMS" target="CPH"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="620"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <edge id="45" source="CDG" target="BCN"><attvalues><attvalue for="0" value="1.7"/><attvalue for="1" value="840"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="46" source="CDG" target="FCO"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1100"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="47" source="CDG" target="LIS"><attvalues><attvalue for="0" value="2.3"/><attvalue for="1" value="1450"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="48" source="CDG" target="LTN"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="340"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="49" source="CDG" target="ORY"><attvalues><attvalue for="0" value="0.5"/><attvalue for="1" value="40"/><attvalue for="2" value="0"/></attvalues></edge>
+
+      <edge id="50" source="BCN" target="PMI"><attvalues><attvalue for="0" value="0.7"/><attvalue for="1" value="210"/><attvalue for="2" value="28"/></attvalues></edge>
+      <edge id="51" source="BCN" target="FCO"><attvalues><attvalue for="0" value="1.7"/><attvalue for="1" value="860"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="52" source="BCN" target="LIS"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1000"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="53" source="BCN" target="GVA"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="620"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="54" source="BCN" target="LGW"><attvalues><attvalue for="0" value="2.1"/><attvalue for="1" value="1100"/><attvalue for="2" value="28"/></attvalues></edge>
+
+      <edge id="55" source="FCO" target="NAP"><attvalues><attvalue for="0" value="0.8"/><attvalue for="1" value="220"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="56" source="FCO" target="MXP"><attvalues><attvalue for="0" value="1.1"/><attvalue for="1" value="480"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="57" source="FCO" target="VCE"><attvalues><attvalue for="0" value="1.0"/><attvalue for="1" value="420"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="58" source="FCO" target="ATH"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1050"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="59" source="FCO" target="LGW"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1440"/><attvalue for="2" value="21"/></attvalues></edge>
+
+      <edge id="60" source="MXP" target="BCN"><attvalues><attvalue for="0" value="1.5"/><attvalue for="1" value="720"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="61" source="MXP" target="LGW"><attvalues><attvalue for="0" value="1.9"/><attvalue for="1" value="980"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="62" source="MXP" target="GVA"><attvalues><attvalue for="0" value="0.8"/><attvalue for="1" value="280"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="63" source="MXP" target="ZRH"><attvalues><attvalue for="0" value="0.8"/><attvalue for="1" value="240"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <edge id="64" source="GVA" target="LTN"><attvalues><attvalue for="0" value="1.7"/><attvalue for="1" value="750"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="65" source="GVA" target="NCE"><attvalues><attvalue for="0" value="0.8"/><attvalue for="1" value="290"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="66" source="GVA" target="LIS"><attvalues><attvalue for="0" value="2.3"/><attvalue for="1" value="1400"/><attvalue for="2" value="7"/></attvalues></edge>
+
+      <edge id="67" source="NCE" target="LGW"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="1000"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="68" source="NCE" target="FCO"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="510"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <edge id="69" source="NAP" target="LGW"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1600"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="70" source="NAP" target="BCN"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="1000"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="71" source="NAP" target="MXP"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="660"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <edge id="72" source="BER" target="AMS"><attvalues><attvalue for="0" value="1.2"/><attvalue for="1" value="580"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="73" source="BER" target="BCN"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1500"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="74" source="BER" target="LGW"><attvalues><attvalue for="0" value="1.8"/><attvalue for="1" value="950"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="75" source="BER" target="CPH"><attvalues><attvalue for="0" value="0.9"/><attvalue for="1" value="360"/><attvalue for="2" value="14"/></attvalues></edge>
+
+      <edge id="76" source="LIS" target="LGW"><attvalues><attvalue for="0" value="2.7"/><attvalue for="1" value="1600"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="77" source="LIS" target="FAO"><attvalues><attvalue for="0" value="0.7"/><attvalue for="1" value="230"/><attvalue for="2" value="21"/></attvalues></edge>
+      <edge id="78" source="LIS" target="BCN"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1000"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="79" source="LIS" target="RAK"><attvalues><attvalue for="0" value="1.5"/><attvalue for="1" value="850"/><attvalue for="2" value="7"/></attvalues></edge>
+
+      <!-- Return flights for key routes -->
+      <edge id="80" source="DBV" target="LGW"><attvalues><attvalue for="0" value="2.5"/><attvalue for="1" value="1700"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="81" source="ATH" target="LGW"><attvalues><attvalue for="0" value="3.5"/><attvalue for="1" value="2400"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="82" source="ATH" target="FCO"><attvalues><attvalue for="0" value="2.0"/><attvalue for="1" value="1050"/><attvalue for="2" value="14"/></attvalues></edge>
+      <edge id="83" source="DBV" target="FCO"><attvalues><attvalue for="0" value="1.3"/><attvalue for="1" value="560"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="84" source="SPU" target="LGW"><attvalues><attvalue for="0" value="2.4"/><attvalue for="1" value="1600"/><attvalue for="2" value="7"/></attvalues></edge>
+      <edge id="85" source="CFU" target="LGW"><attvalues><attvalue for="0" value="3.0"/><attvalue for="1" value="2000"/><attvalue for="2" value="7"/></attvalues></edge>
+    </edges>
+  </graph>
+</gexf>

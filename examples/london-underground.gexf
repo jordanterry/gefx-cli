@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3">
+  <meta lastmodifieddate="2024-01-15">
+    <creator>grph examples</creator>
+    <description>London Underground - Central London subset. Nodes are stations, edges are direct connections with travel time in minutes.</description>
+    <keywords>transport, underground, tube, london, tfl</keywords>
+  </meta>
+  <graph mode="static" defaultedgetype="undirected">
+    <attributes class="node">
+      <attribute id="0" title="zone" type="integer"/>
+      <attribute id="1" title="lines" type="string"/>
+      <attribute id="2" title="interchange" type="boolean"/>
+    </attributes>
+    <attributes class="edge">
+      <attribute id="0" title="line" type="string"/>
+      <attribute id="1" title="time_minutes" type="float"/>
+    </attributes>
+    <nodes>
+      <!-- Central Line -->
+      <node id="oxford-circus" label="Oxford Circus">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central,Victoria,Bakerloo"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="tottenham-court-road" label="Tottenham Court Road">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central,Northern,Elizabeth"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="holborn" label="Holborn">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central,Piccadilly"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="chancery-lane" label="Chancery Lane">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central"/>
+          <attvalue for="2" value="false"/>
+        </attvalues>
+      </node>
+      <node id="bank" label="Bank">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central,Northern,Waterloo,DLR"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="liverpool-street" label="Liverpool Street">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Central,Circle,Hammersmith,Metropolitan,Elizabeth"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+
+      <!-- Victoria Line -->
+      <node id="kings-cross" label="King's Cross St. Pancras">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Victoria,Northern,Piccadilly,Circle,Hammersmith,Metropolitan"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="euston" label="Euston">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Victoria,Northern"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="warren-street" label="Warren Street">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Victoria,Northern"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="green-park" label="Green Park">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Victoria,Jubilee,Piccadilly"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="victoria" label="Victoria">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Victoria,Circle,District"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+
+      <!-- Northern Line -->
+      <node id="leicester-square" label="Leicester Square">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Northern,Piccadilly"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="charing-cross" label="Charing Cross">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Northern,Bakerloo"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="embankment" label="Embankment">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Northern,Bakerloo,Circle,District"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="waterloo" label="Waterloo">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Northern,Bakerloo,Jubilee,Waterloo"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="london-bridge" label="London Bridge">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Northern,Jubilee"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+
+      <!-- Piccadilly Line -->
+      <node id="piccadilly-circus" label="Piccadilly Circus">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Piccadilly,Bakerloo"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="covent-garden" label="Covent Garden">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Piccadilly"/>
+          <attvalue for="2" value="false"/>
+        </attvalues>
+      </node>
+      <node id="russell-square" label="Russell Square">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Piccadilly"/>
+          <attvalue for="2" value="false"/>
+        </attvalues>
+      </node>
+
+      <!-- Jubilee Line -->
+      <node id="westminster" label="Westminster">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Jubilee,Circle,District"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="bond-street" label="Bond Street">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Jubilee,Central,Elizabeth"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+      <node id="baker-street" label="Baker Street">
+        <attvalues>
+          <attvalue for="0" value="1"/>
+          <attvalue for="1" value="Jubilee,Metropolitan,Circle,Hammersmith,Bakerloo"/>
+          <attvalue for="2" value="true"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <!-- Central Line -->
+      <edge id="0" source="oxford-circus" target="tottenham-court-road">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="1" source="tottenham-court-road" target="holborn">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="2" source="holborn" target="chancery-lane">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="3" source="chancery-lane" target="bank">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="3.0"/>
+        </attvalues>
+      </edge>
+      <edge id="4" source="bank" target="liverpool-street">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="5" source="oxford-circus" target="bond-street">
+        <attvalues>
+          <attvalue for="0" value="Central"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+
+      <!-- Victoria Line -->
+      <edge id="6" source="kings-cross" target="euston">
+        <attvalues>
+          <attvalue for="0" value="Victoria"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="7" source="euston" target="warren-street">
+        <attvalues>
+          <attvalue for="0" value="Victoria"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="8" source="warren-street" target="oxford-circus">
+        <attvalues>
+          <attvalue for="0" value="Victoria"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="9" source="oxford-circus" target="green-park">
+        <attvalues>
+          <attvalue for="0" value="Victoria"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="10" source="green-park" target="victoria">
+        <attvalues>
+          <attvalue for="0" value="Victoria"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+
+      <!-- Northern Line -->
+      <edge id="11" source="euston" target="kings-cross">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="2.5"/>
+        </attvalues>
+      </edge>
+      <edge id="12" source="warren-street" target="euston">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="13" source="tottenham-court-road" target="leicester-square">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="14" source="leicester-square" target="charing-cross">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="15" source="charing-cross" target="embankment">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="1.0"/>
+        </attvalues>
+      </edge>
+      <edge id="16" source="embankment" target="waterloo">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="17" source="waterloo" target="london-bridge">
+        <attvalues>
+          <attvalue for="0" value="Northern/Jubilee"/>
+          <attvalue for="1" value="3.0"/>
+        </attvalues>
+      </edge>
+      <edge id="18" source="london-bridge" target="bank">
+        <attvalues>
+          <attvalue for="0" value="Northern"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+
+      <!-- Piccadilly Line -->
+      <edge id="19" source="piccadilly-circus" target="leicester-square">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="1.0"/>
+        </attvalues>
+      </edge>
+      <edge id="20" source="leicester-square" target="covent-garden">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="1.0"/>
+        </attvalues>
+      </edge>
+      <edge id="21" source="covent-garden" target="holborn">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="22" source="holborn" target="russell-square">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="23" source="russell-square" target="kings-cross">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="24" source="green-park" target="piccadilly-circus">
+        <attvalues>
+          <attvalue for="0" value="Piccadilly"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+
+      <!-- Jubilee Line -->
+      <edge id="25" source="baker-street" target="bond-street">
+        <attvalues>
+          <attvalue for="0" value="Jubilee"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="26" source="bond-street" target="green-park">
+        <attvalues>
+          <attvalue for="0" value="Jubilee"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="27" source="green-park" target="westminster">
+        <attvalues>
+          <attvalue for="0" value="Jubilee"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="28" source="westminster" target="waterloo">
+        <attvalues>
+          <attvalue for="0" value="Jubilee"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+
+      <!-- Bakerloo Line -->
+      <edge id="29" source="baker-street" target="oxford-circus">
+        <attvalues>
+          <attvalue for="0" value="Bakerloo"/>
+          <attvalue for="1" value="3.0"/>
+        </attvalues>
+      </edge>
+      <edge id="30" source="oxford-circus" target="piccadilly-circus">
+        <attvalues>
+          <attvalue for="0" value="Bakerloo"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+      <edge id="31" source="piccadilly-circus" target="charing-cross">
+        <attvalues>
+          <attvalue for="0" value="Bakerloo"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="32" source="charing-cross" target="embankment">
+        <attvalues>
+          <attvalue for="0" value="Bakerloo"/>
+          <attvalue for="1" value="1.0"/>
+        </attvalues>
+      </edge>
+      <edge id="33" source="embankment" target="waterloo">
+        <attvalues>
+          <attvalue for="0" value="Bakerloo"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+
+      <!-- Circle/District connections -->
+      <edge id="34" source="victoria" target="westminster">
+        <attvalues>
+          <attvalue for="0" value="Circle/District"/>
+          <attvalue for="1" value="2.0"/>
+        </attvalues>
+      </edge>
+      <edge id="35" source="westminster" target="embankment">
+        <attvalues>
+          <attvalue for="0" value="Circle/District"/>
+          <attvalue for="1" value="1.5"/>
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

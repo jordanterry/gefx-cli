@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3">
+  <meta lastmodifieddate="2024-01-15">
+    <creator>grph examples</creator>
+    <description>Social network follow graph. Nodes are users with follower counts and verification status. Edges represent follow relationships. Great for influencer analysis and community detection.</description>
+    <keywords>social, network, followers, influencers, twitter</keywords>
+  </meta>
+  <graph mode="static" defaultedgetype="directed">
+    <attributes class="node">
+      <attribute id="0" title="display_name" type="string"/>
+      <attribute id="1" title="followers" type="integer"/>
+      <attribute id="2" title="following" type="integer"/>
+      <attribute id="3" title="verified" type="boolean"/>
+      <attribute id="4" title="category" type="string"/>
+      <attribute id="5" title="joined_year" type="integer"/>
+    </attributes>
+    <attributes class="edge">
+      <attribute id="0" title="since_year" type="integer"/>
+      <attribute id="1" title="interaction_score" type="float"/>
+    </attributes>
+    <nodes>
+      <!-- Tech Influencers -->
+      <node id="techguru" label="@techguru">
+        <attvalues>
+          <attvalue for="0" value="Tech Guru"/>
+          <attvalue for="1" value="2500000"/>
+          <attvalue for="2" value="450"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2009"/>
+        </attvalues>
+      </node>
+      <node id="codequeen" label="@codequeen">
+        <attvalues>
+          <attvalue for="0" value="Code Queen"/>
+          <attvalue for="1" value="850000"/>
+          <attvalue for="2" value="1200"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2012"/>
+        </attvalues>
+      </node>
+      <node id="rustacean" label="@rustacean">
+        <attvalues>
+          <attvalue for="0" value="Rusty Developer"/>
+          <attvalue for="1" value="120000"/>
+          <attvalue for="2" value="890"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2018"/>
+        </attvalues>
+      </node>
+      <node id="airesearcher" label="@airesearcher">
+        <attvalues>
+          <attvalue for="0" value="AI Research Lab"/>
+          <attvalue for="1" value="450000"/>
+          <attvalue for="2" value="320"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2015"/>
+        </attvalues>
+      </node>
+      <node id="opensourcefan" label="@opensourcefan">
+        <attvalues>
+          <attvalue for="0" value="Open Source Advocate"/>
+          <attvalue for="1" value="95000"/>
+          <attvalue for="2" value="2100"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2014"/>
+        </attvalues>
+      </node>
+      <node id="devopsdaily" label="@devopsdaily">
+        <attvalues>
+          <attvalue for="0" value="DevOps Daily"/>
+          <attvalue for="1" value="180000"/>
+          <attvalue for="2" value="650"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2016"/>
+        </attvalues>
+      </node>
+      <node id="frontenddev" label="@frontenddev">
+        <attvalues>
+          <attvalue for="0" value="Frontend Wizard"/>
+          <attvalue for="1" value="230000"/>
+          <attvalue for="2" value="980"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2013"/>
+        </attvalues>
+      </node>
+      <node id="pythonista" label="@pythonista">
+        <attvalues>
+          <attvalue for="0" value="Python Lover"/>
+          <attvalue for="1" value="310000"/>
+          <attvalue for="2" value="450"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2011"/>
+        </attvalues>
+      </node>
+
+      <!-- Startup/Business -->
+      <node id="startupfounder" label="@startupfounder">
+        <attvalues>
+          <attvalue for="0" value="Startup Life"/>
+          <attvalue for="1" value="520000"/>
+          <attvalue for="2" value="1800"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="business"/>
+          <attvalue for="5" value="2010"/>
+        </attvalues>
+      </node>
+      <node id="vcpartner" label="@vcpartner">
+        <attvalues>
+          <attvalue for="0" value="VC Insights"/>
+          <attvalue for="1" value="380000"/>
+          <attvalue for="2" value="890"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="business"/>
+          <attvalue for="5" value="2012"/>
+        </attvalues>
+      </node>
+      <node id="growthhacker" label="@growthhacker">
+        <attvalues>
+          <attvalue for="0" value="Growth Hacking Pro"/>
+          <attvalue for="1" value="145000"/>
+          <attvalue for="2" value="2300"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="business"/>
+          <attvalue for="5" value="2017"/>
+        </attvalues>
+      </node>
+      <node id="productmanager" label="@productmanager">
+        <attvalues>
+          <attvalue for="0" value="PM Thoughts"/>
+          <attvalue for="1" value="210000"/>
+          <attvalue for="2" value="1100"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="business"/>
+          <attvalue for="5" value="2014"/>
+        </attvalues>
+      </node>
+
+      <!-- Content Creators / General -->
+      <node id="techreporter" label="@techreporter">
+        <attvalues>
+          <attvalue for="0" value="Tech News Daily"/>
+          <attvalue for="1" value="890000"/>
+          <attvalue for="2" value="2500"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="media"/>
+          <attvalue for="5" value="2008"/>
+        </attvalues>
+      </node>
+      <node id="podcasthost" label="@podcasthost">
+        <attvalues>
+          <attvalue for="0" value="Tech Talk Podcast"/>
+          <attvalue for="1" value="320000"/>
+          <attvalue for="2" value="1500"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="media"/>
+          <attvalue for="5" value="2015"/>
+        </attvalues>
+      </node>
+      <node id="techyoutuber" label="@techyoutuber">
+        <attvalues>
+          <attvalue for="0" value="Tech Reviews"/>
+          <attvalue for="1" value="1200000"/>
+          <attvalue for="2" value="350"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="media"/>
+          <attvalue for="5" value="2014"/>
+        </attvalues>
+      </node>
+
+      <!-- Regular Users / Smaller Accounts -->
+      <node id="juniordev" label="@juniordev">
+        <attvalues>
+          <attvalue for="0" value="Learning to Code"/>
+          <attvalue for="1" value="2500"/>
+          <attvalue for="2" value="890"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2022"/>
+        </attvalues>
+      </node>
+      <node id="bootcamper" label="@bootcamper">
+        <attvalues>
+          <attvalue for="0" value="Bootcamp Journey"/>
+          <attvalue for="1" value="1800"/>
+          <attvalue for="2" value="650"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2023"/>
+        </attvalues>
+      </node>
+      <node id="careerswitcher" label="@careerswitcher">
+        <attvalues>
+          <attvalue for="0" value="Career Change Diary"/>
+          <attvalue for="1" value="8500"/>
+          <attvalue for="2" value="420"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2021"/>
+        </attvalues>
+      </node>
+      <node id="hobbyist" label="@hobbyist">
+        <attvalues>
+          <attvalue for="0" value="Weekend Coder"/>
+          <attvalue for="1" value="450"/>
+          <attvalue for="2" value="180"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2020"/>
+        </attvalues>
+      </node>
+      <node id="student" label="@student">
+        <attvalues>
+          <attvalue for="0" value="CS Student"/>
+          <attvalue for="1" value="320"/>
+          <attvalue for="2" value="95"/>
+          <attvalue for="3" value="false"/>
+          <attvalue for="4" value="tech"/>
+          <attvalue for="5" value="2022"/>
+        </attvalues>
+      </node>
+
+      <!-- Companies/Brands -->
+      <node id="techcompany" label="@techcompany">
+        <attvalues>
+          <attvalue for="0" value="Big Tech Co"/>
+          <attvalue for="1" value="5200000"/>
+          <attvalue for="2" value="120"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="company"/>
+          <attvalue for="5" value="2007"/>
+        </attvalues>
+      </node>
+      <node id="devtools" label="@devtools">
+        <attvalues>
+          <attvalue for="0" value="DevTools Inc"/>
+          <attvalue for="1" value="180000"/>
+          <attvalue for="2" value="450"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="company"/>
+          <attvalue for="5" value="2015"/>
+        </attvalues>
+      </node>
+      <node id="cloudplatform" label="@cloudplatform">
+        <attvalues>
+          <attvalue for="0" value="Cloud Platform"/>
+          <attvalue for="1" value="890000"/>
+          <attvalue for="2" value="280"/>
+          <attvalue for="3" value="true"/>
+          <attvalue for="4" value="company"/>
+          <attvalue for="5" value="2012"/>
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <!-- Tech influencers following each other -->
+      <edge id="0" source="techguru" target="codequeen"><attvalues><attvalue for="0" value="2013"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="1" source="techguru" target="airesearcher"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="2" source="techguru" target="techyoutuber"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.65"/></attvalues></edge>
+      <edge id="3" source="techguru" target="techcompany"><attvalues><attvalue for="0" value="2010"/><attvalue for="1" value="0.45"/></attvalues></edge>
+
+      <edge id="4" source="codequeen" target="techguru"><attvalues><attvalue for="0" value="2012"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="5" source="codequeen" target="pythonista"><attvalues><attvalue for="0" value="2014"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="6" source="codequeen" target="frontenddev"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.76"/></attvalues></edge>
+      <edge id="7" source="codequeen" target="rustacean"><attvalues><attvalue for="0" value="2019"/><attvalue for="1" value="0.68"/></attvalues></edge>
+      <edge id="8" source="codequeen" target="opensourcefan"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.55"/></attvalues></edge>
+
+      <edge id="9" source="rustacean" target="codequeen"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.95"/></attvalues></edge>
+      <edge id="10" source="rustacean" target="opensourcefan"><attvalues><attvalue for="0" value="2019"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="11" source="rustacean" target="devopsdaily"><attvalues><attvalue for="0" value="2020"/><attvalue for="1" value="0.45"/></attvalues></edge>
+
+      <edge id="12" source="airesearcher" target="techguru"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="13" source="airesearcher" target="pythonista"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="14" source="airesearcher" target="techcompany"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.62"/></attvalues></edge>
+
+      <edge id="15" source="pythonista" target="codequeen"><attvalues><attvalue for="0" value="2013"/><attvalue for="1" value="0.91"/></attvalues></edge>
+      <edge id="16" source="pythonista" target="airesearcher"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="17" source="pythonista" target="devopsdaily"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="18" source="pythonista" target="opensourcefan"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.68"/></attvalues></edge>
+
+      <edge id="19" source="frontenddev" target="codequeen"><attvalues><attvalue for="0" value="2014"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="20" source="frontenddev" target="techyoutuber"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.75"/></attvalues></edge>
+      <edge id="21" source="frontenddev" target="devtools"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.55"/></attvalues></edge>
+
+      <edge id="22" source="opensourcefan" target="rustacean"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="23" source="opensourcefan" target="codequeen"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="24" source="opensourcefan" target="pythonista"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="25" source="opensourcefan" target="devtools"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.65"/></attvalues></edge>
+
+      <edge id="26" source="devopsdaily" target="cloudplatform"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="27" source="devopsdaily" target="pythonista"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="28" source="devopsdaily" target="devtools"><attvalues><attvalue for="0" value="2019"/><attvalue for="1" value="0.68"/></attvalues></edge>
+
+      <!-- Business/Startup follows -->
+      <edge id="29" source="startupfounder" target="techguru"><attvalues><attvalue for="0" value="2011"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="30" source="startupfounder" target="vcpartner"><attvalues><attvalue for="0" value="2013"/><attvalue for="1" value="0.95"/></attvalues></edge>
+      <edge id="31" source="startupfounder" target="productmanager"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="32" source="startupfounder" target="growthhacker"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="33" source="startupfounder" target="techreporter"><attvalues><attvalue for="0" value="2012"/><attvalue for="1" value="0.65"/></attvalues></edge>
+
+      <edge id="34" source="vcpartner" target="startupfounder"><attvalues><attvalue for="0" value="2012"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="35" source="vcpartner" target="techguru"><attvalues><attvalue for="0" value="2013"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="36" source="vcpartner" target="techcompany"><attvalues><attvalue for="0" value="2014"/><attvalue for="1" value="0.55"/></attvalues></edge>
+
+      <edge id="37" source="productmanager" target="startupfounder"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="38" source="productmanager" target="codequeen"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="39" source="productmanager" target="frontenddev"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.68"/></attvalues></edge>
+
+      <edge id="40" source="growthhacker" target="startupfounder"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="41" source="growthhacker" target="productmanager"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.78"/></attvalues></edge>
+
+      <!-- Media follows -->
+      <edge id="42" source="techreporter" target="techguru"><attvalues><attvalue for="0" value="2010"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="43" source="techreporter" target="techcompany"><attvalues><attvalue for="0" value="2009"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="44" source="techreporter" target="airesearcher"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="45" source="techreporter" target="startupfounder"><attvalues><attvalue for="0" value="2011"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="46" source="techreporter" target="vcpartner"><attvalues><attvalue for="0" value="2013"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="47" source="techreporter" target="cloudplatform"><attvalues><attvalue for="0" value="2014"/><attvalue for="1" value="0.65"/></attvalues></edge>
+
+      <edge id="48" source="podcasthost" target="techguru"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.95"/></attvalues></edge>
+      <edge id="49" source="podcasthost" target="codequeen"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="50" source="podcasthost" target="startupfounder"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="51" source="podcasthost" target="airesearcher"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.75"/></attvalues></edge>
+      <edge id="52" source="podcasthost" target="techyoutuber"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.72"/></attvalues></edge>
+
+      <edge id="53" source="techyoutuber" target="techguru"><attvalues><attvalue for="0" value="2014"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="54" source="techyoutuber" target="techcompany"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="55" source="techyoutuber" target="frontenddev"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.68"/></attvalues></edge>
+      <edge id="56" source="techyoutuber" target="devtools"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.55"/></attvalues></edge>
+
+      <!-- Smaller accounts following influencers -->
+      <edge id="57" source="juniordev" target="codequeen"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.95"/></attvalues></edge>
+      <edge id="58" source="juniordev" target="frontenddev"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="59" source="juniordev" target="pythonista"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="60" source="juniordev" target="techyoutuber"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="61" source="juniordev" target="bootcamper"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="62" source="juniordev" target="careerswitcher"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.72"/></attvalues></edge>
+
+      <edge id="63" source="bootcamper" target="codequeen"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.98"/></attvalues></edge>
+      <edge id="64" source="bootcamper" target="frontenddev"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.95"/></attvalues></edge>
+      <edge id="65" source="bootcamper" target="juniordev"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="66" source="bootcamper" target="careerswitcher"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="67" source="bootcamper" target="techyoutuber"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.75"/></attvalues></edge>
+
+      <edge id="68" source="careerswitcher" target="codequeen"><attvalues><attvalue for="0" value="2021"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="69" source="careerswitcher" target="techguru"><attvalues><attvalue for="0" value="2021"/><attvalue for="1" value="0.85"/></attvalues></edge>
+      <edge id="70" source="careerswitcher" target="juniordev"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="71" source="careerswitcher" target="podcasthost"><attvalues><attvalue for="0" value="2021"/><attvalue for="1" value="0.72"/></attvalues></edge>
+
+      <edge id="72" source="hobbyist" target="pythonista"><attvalues><attvalue for="0" value="2020"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="73" source="hobbyist" target="rustacean"><attvalues><attvalue for="0" value="2021"/><attvalue for="1" value="0.82"/></attvalues></edge>
+      <edge id="74" source="hobbyist" target="opensourcefan"><attvalues><attvalue for="0" value="2020"/><attvalue for="1" value="0.75"/></attvalues></edge>
+
+      <edge id="75" source="student" target="codequeen"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.92"/></attvalues></edge>
+      <edge id="76" source="student" target="techyoutuber"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.88"/></attvalues></edge>
+      <edge id="77" source="student" target="juniordev"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.72"/></attvalues></edge>
+
+      <!-- Companies following influencers (for marketing/engagement) -->
+      <edge id="78" source="devtools" target="codequeen"><attvalues><attvalue for="0" value="2017"/><attvalue for="1" value="0.65"/></attvalues></edge>
+      <edge id="79" source="devtools" target="frontenddev"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.62"/></attvalues></edge>
+      <edge id="80" source="devtools" target="rustacean"><attvalues><attvalue for="0" value="2020"/><attvalue for="1" value="0.55"/></attvalues></edge>
+
+      <edge id="81" source="cloudplatform" target="devopsdaily"><attvalues><attvalue for="0" value="2018"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="82" source="cloudplatform" target="techguru"><attvalues><attvalue for="0" value="2015"/><attvalue for="1" value="0.65"/></attvalues></edge>
+
+      <!-- Some mutual follows between peers -->
+      <edge id="83" source="techguru" target="techreporter"><attvalues><attvalue for="0" value="2010"/><attvalue for="1" value="0.78"/></attvalues></edge>
+      <edge id="84" source="techguru" target="startupfounder"><attvalues><attvalue for="0" value="2012"/><attvalue for="1" value="0.72"/></attvalues></edge>
+      <edge id="85" source="techguru" target="podcasthost"><attvalues><attvalue for="0" value="2016"/><attvalue for="1" value="0.68"/></attvalues></edge>
+
+      <edge id="86" source="codequeen" target="juniordev"><attvalues><attvalue for="0" value="2023"/><attvalue for="1" value="0.45"/></attvalues></edge>
+      <edge id="87" source="codequeen" target="careerswitcher"><attvalues><attvalue for="0" value="2022"/><attvalue for="1" value="0.42"/></attvalues></edge>
+    </edges>
+  </graph>
+</gexf>
