@@ -7,7 +7,9 @@ class GrphCli < Formula
   sha256 "49c0907247cc1e20876c96d60034561b3afc1faf393b9845135cc138b3f0e667"
   license "MIT"
 
+  depends_on "numpy"
   depends_on "python@3.11"
+  depends_on "scipy"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"

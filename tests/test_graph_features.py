@@ -274,6 +274,24 @@ class TestCentrality:
         # PageRank scores should sum to approximately 1
         assert abs(sum(result.scores.values()) - 1.0) < 0.01
 
+    def test_closeness_centrality(self) -> None:
+        """Test closeness centrality calculation."""
+        graph = GEXFGraph(SAMPLE_FILE)
+        result = graph.get_centrality(CentralityType.CLOSENESS)
+
+        assert result.centrality_type == "closeness"
+        assert len(result.scores) == 5
+        assert all(0 <= s <= 1 for s in result.scores.values())
+
+    def test_eigenvector_centrality(self) -> None:
+        """Test eigenvector centrality calculation."""
+        graph = GEXFGraph(SAMPLE_FILE)
+        result = graph.get_centrality(CentralityType.EIGENVECTOR)
+
+        assert result.centrality_type == "eigenvector"
+        assert len(result.scores) == 5
+        assert all(0 <= s <= 1 for s in result.scores.values())
+
     def test_centrality_top_n(self) -> None:
         """Test getting top N nodes by centrality."""
         graph = GEXFGraph(SAMPLE_FILE)
